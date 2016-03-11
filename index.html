@@ -2,49 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Animation Test</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div id="chat">
-        <div class="bubble bubbleLeft bubbleTyping">
-            <span class="typing"><span class="circle dot1"></span><span class="circle dot2"></span><span class="circle dot3"></span></span>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Bruno</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#">〈 Settings</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Details</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="wrap">
+        <div id="bruno-chat">
+            <!-- Filled by JSON! -->
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <div class="footer">
+        <div class="container-fluid">
+        <div class="commands"></div>
+        </div>
+    </div>
+
+    <script src="assets/lib/jquery/dist/jquery.min.js"></script>
+    <script src="assets/lib/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function() {
-            var json = [
-                {
-                    'bubble': 'bubbleRight',
-                    'contents': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.'
-                },
-                {
-                    'bubble': 'bubbleLeft',
-                    'contents': 'Sorry, I don\'t speak Spanish. 😱'
-                },
-                {
-                    'bubble': 'bubbleLeft',
-                    'contents': 'Oh, wait.'
-                },
-                {
-                    'bubble': 'bubbleLeft',
-                    'contents': 'Is that the placeholder psudo-latin designers use? 🤓'
-                },
-                {
-                    'bubble': 'bubbleRight',
-                    'contents': 'How does a hash sound for dinner by the way?'
-                },
-                {
-                    'bubble': 'bubbleRightImg',
-                    'contents': 'hash.jpg'
-                },
-                {
-                    'bubble': 'bubbleLeft',
-                    'contents': 'That looks amazing.'
-                }
-            ];
+
+        var json = [
+            {
+                'bubble': 'bubbleRight',
+                'delay': 0,
+                'typing': 0,
+                'contents': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.'
+            },
+            {
+                'bubble': 'bubbleLeft',
+                'delay': 0,
+                'typing': 0,
+                'contents': 'Sorry, I don\'t speak Spanish. 😱'
+            },
+            {
+                'bubble': 'bubbleLeft',
+                'delay': 0,
+                'typing': 2000,
+                'contents': 'Oh, wait.'
+            },
+            {
+                'bubble': 'bubbleLeft',
+                'delay': 0,
+                'typing': 0,
+                'contents': 'Is that the placeholder psudo-latin designers use? 🤓'
+            },
+            {
+                'bubble': 'bubbleRight',
+                'delay': 0,
+                'typing': 0,
+                'contents': 'You got it. 👌'
+            },
+            {
+                'bubble': 'bubbleRight',
+                'delay': 0,
+                'typing': 0,
+                'contents': 'How does a hash sound for dinner by the way?'
+            },
+            {
+                'bubble': 'bubbleRightImg',
+                'delay': 0,
+                'typing': 0,
+                'contents': 'hash.jpg'
+            },
+            {
+                'bubble': 'bubbleLeft',
+                'delay': 0,
+                'typing': 0,
+                'contents': 'That looks amazing.'
+            },
+            {
+                'bubble': 'bubbleRight',
+                'delay': 0,
+                'typing': 0,
+                'contents': 'I know right?'
+            },
+            {
+                'bubble': 'bubbleLeft',
+                'delay': 0,
+                'typing': 0,
+                'contents': 'More tasty noms pls. 😻'
+            }
+        ];
+
+        var display = function(id, message) {
+            // Variable of total time since first post.
+            var timeline = 0;
+            // Standard gap between messages.
+            var chatWait = 2000;
+            // Typing delay.
+            var delay = 1000;
+            // Number of times the typing indicator has been triggered.
+            var delays = 0;
+            // Time it takes for the typing indicator to leave the screen.
+            var exit = 300;
+            // Number of times the typing indicator has exited the screen.
+            var exits = 0;
+            // Delay before typing indicator posts appear.
+            var typedDelay = delay + exit + 100;
+            // Custom delays as specified in the json file.
+            var pause = 0;
+            // Custom typing indicator extension.
+            var typing = 0;
 
             $.each(json, function (index, value) {
                 var message;
@@ -57,36 +135,54 @@
                 else {
                     message = "<div class=\"bubble" + value.bubble + "\">" + "Something went wrong. :/" + "</div>";
                 }
+
+
+                if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleLeftImg') {
+                    exits = exits + 1;
+                    delays = delays + 1;
+                }
+                pause = pause + value.delay;
+                typing = typing + value.typing;
+
+
+                //console.log("timeline = " + timeline + " = ((index(" + index + ")+1) * chatWait(" + chatWait + ")) + (delays(" + delays + ") * delay(" + delay + ")) + (exits(" + exits + ") * exit(" + exit + ")) + pause(" + pause +") + typing(" + typing + ")");
+
                 setTimeout(function() {
-                    $('#chat').append(message);
-                    setTimeout(function() {
-                        $('.bubble:last-child').addClass('green');
-                        // Hack to re-trigger animations
-                        $('.bubble:last-child').offsetWidth = $('.bubble:last-child').offsetWidth;
-                        $('.bubble:last-child').addClass(value.bubble + 'AnimateExit');
+                    if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleLeftImg') {
+                        var typing = "<div class=\"bubble bubbleLeft bubbleLeftAnimate bubbleTyping\"><span class=\"typing\"><span class=\"circle dot1\"></span><span class=\"circle dot2\"></span><span class=\"circle dot3\"></span></span></div>";
+                        $(id).append(typing);
+                        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
                         setTimeout(function() {
-                            $('.bubble:last-child').remove();
-                        }, 300);
-                    }, 1500);
-                }, 500 + (index * 2000));
+                            // Hack to re-trigger animations
+                            $('.bubble:last-child').offsetWidth = $('.bubble:last-child').offsetWidth;
 
-
+                            $('.bubble:last-child').addClass(value.bubble + 'AnimateExit');
+                            setTimeout(function() {
+                                $('.bubble:last-child').remove();
+                            }, exit);
+                        }, delay + value.typing);
+                        setTimeout(function() {
+                            $(id).append(message);
+                            $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+                        }, typedDelay + value.typing);
+                    }
+                    else {
+                        $(id).append(message);
+                        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+                    }
+                }, timeline);
+                timeline =  ((index+1) * chatWait) + (delays * delay) + (exits * exit) + pause + typing;
             });
+        }
 
-
-            /* $('#chat').children('.bubble').each(function(index, element) {
-                setTimeout(function() {
-                    if($(element).hasClass("bubbleRight") || $(element).hasClass("bubbleRightImg")) {
-                        $(element).addClass("bubbleRightAnimate");
-                    }
-                    else if($(element).hasClass("bubbleLeft") || $(element).hasClass("bubbleLeftImg")) {
-                        $(element).addClass("bubbleLeftAnimate");
-                    }
-                    $('html, body').animate({
-                        scrollTop: $(element).offset().top
-                    }, 2000);
-                }, 500 + (index * 2000));
-            }); */
+        $(document).ready(function() {
+            display('#bruno-chat', json);
+            /*setTimeout(function() {
+                display('#bruno-chat', json);
+            }, 25000);
+            setTimeout(function() {
+                display('#bruno-chat', json);
+            }, 50000);*/
         });
     </script>
 </body>

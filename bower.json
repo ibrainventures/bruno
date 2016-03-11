@@ -1,0 +1,29 @@
+{
+  "name": "bruno",
+  "description": "Web-Based Pseudo-Messaging UI Concept",
+  "main": "index.html",
+  "authors": [
+    "Stuart Jones"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "CSS",
+    "Animations"
+  ],
+  "homepage": "https://github.com/ImStuartJones/bruno",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6"
+  }
+}

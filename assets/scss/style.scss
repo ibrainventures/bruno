@@ -1,3 +1,73 @@
+@import '../lib/bootstrap-sass/assets/stylesheets/_bootstrap';
+
+html,
+body {
+  height: 100%;
+	margin: 0px;
+}
+
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: auto;
+	color: #333 !important;
+}
+
+.navbar-nav{
+	margin-left: -15px !important;
+}
+
+.navbar-collapse.collapse {
+	display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+	float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+	margin-right: -15px !important;
+}
+
+.navbar-right {
+	float: right!important;
+}
+
+.wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -50px;
+  /* Pad bottom by footer height */
+  padding: 0 0 50px;
+}
+
+/* Set the fixed height of the footer here */
+.footer {
+  height: 50px;
+  background-color: #f5f5f5;
+
+  border-top: solid #ccc 1px;
+}
+
+.commands {
+	height: 40px;
+	width: 100%;
+	margin: 5px auto 5px auto;
+	border-radius: 50px;
+	background-color: white;
+}
+
+body {
+	background-color: gray;
+	margin: 0px;
+	background-color: #fcfcfc;
+	padding-top: 60px;
+}
+
 .circle {
 	display: inline-block;
 	width: 0.75em;
@@ -29,13 +99,14 @@
 	animation-delay: .66s;
 }
 
-#chat {
-	background: #fcfcfc;
-	border: solid 1px black;
-	width: 500px;
-	height: auto;
-	height:auto;
-	margin: 10px auto 10px auto;
+#bruno-container {
+	background-color: #fcfcfc;
+	margin: 0px 0px 0px 0px;
+}
+
+#bruno-chat {
+	background-color: #fcfcfc;
+	margin: 0px 0px 0px 0px;
 	padding-bottom: 10px;
 	overflow: hidden;
 }
@@ -65,7 +136,7 @@
 	background-color: #4e4ff5;
 	color: white;
 
-	right: -400px;
+	right: -50vw;
 }
 
 .bubbleRight:before {
@@ -85,7 +156,7 @@
 	margin-right: 15px;
 	padding: 0px;
 
-	right: -400px;
+	right: -50vw;
 }
 
 .bubbleRightAnimate {
@@ -93,7 +164,7 @@
 }
 
 @keyframes bubble_right {
-	0% { right: -400px}
+	0% { right: -50vw}
 	100% { right: 0px; }
 }
 
@@ -160,8 +231,4 @@
 
 .bubbleTyping {
 	padding: 7px 10px 7px 10px;
-}
-
-.green {
-	background-color: green !important;
 }
