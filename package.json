@@ -1,0 +1,15 @@
+{
+  "name": "bruno",
+  "version": "1.0.0",
+  "description": "Web-Based Pseudo-Messaging UI Concept",
+  "author": "Stuart Jones",
+  "keywords": "CSS Animations",
+  "dependencies": {
+    "bower": "*",
+    "grunt": "*",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "*",
+    "grunt-browser-sync": "*"
+  },
+  "private": "true",
+}

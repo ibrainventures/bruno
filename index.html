@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation Test</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div id="chat">
+        <div class="bubble bubbleRight bubble3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.
+        </div>
+        <div class="bubble bubbleLeft bubble3">
+            Sorry, I don't speak Spanish. 🙀
+        </div>
+        <div class="bubble bubbleLeft">
+            Oh, wait.
+        </div>
+        <div class="bubble bubbleLeft">
+            Is that the placeholder psudo-latin designers use? 🤓
+        </div>
+        <div class="bubble bubbleRight">
+            You got it. 👌
+        </div>
+        <div class="bubble bubbleRight">
+            How does a hash sound for dinner by the way?
+        </div>
+        <div class="bubble bubbleRightImg">
+            <img src="assets/img/hash.jpg" alt="breakfast">
+        </div>
+        <div class="bubble bubbleLeft">
+            That looks amazing.
+        </div>
+        <div class="bubble bubbleRight bubble3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.
+        </div>
+        <div class="bubble bubbleLeft bubble3">
+            Sorry, I don't speak Spanish. 🙀
+        </div>
+        <div class="bubble bubbleLeft">
+            Oh, wait.
+        </div>
+        <div class="bubble bubbleLeft">
+            Is that the placeholder psudo-latin designers use? 🤓
+        </div>
+        <div class="bubble bubbleRight">
+            You got it. 👌
+        </div>
+        <div class="bubble bubbleRight">
+            How does a hash sound for dinner by the way?
+        </div>
+        <div class="bubble bubbleRightImg">
+            <img src="assets/img/hash.jpg" alt="breakfast">
+        </div>
+        <div class="bubble bubbleLeft">
+            That looks amazing.
+        </div>
+        <div class="bubble bubbleRight bubble3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.
+        </div>
+        <div class="bubble bubbleLeft bubble3">
+            Sorry, I don't speak Spanish. 🙀
+        </div>
+        <div class="bubble bubbleLeft">
+            Oh, wait.
+        </div>
+        <div class="bubble bubbleLeft">
+            Is that the placeholder psudo-latin designers use? 🤓
+        </div>
+        <div class="bubble bubbleRight">
+            You got it. 👌
+        </div>
+        <div class="bubble bubbleRight">
+            How does a hash sound for dinner by the way?
+        </div>
+        <div class="bubble bubbleRightImg">
+            <img src="assets/img/hash.jpg" alt="breakfast">
+        </div>
+        <div class="bubble bubbleLeft">
+            That looks amazing.
+        </div>
+        <div class="bubble bubbleLeft bubbleTyping">
+            <span class="typing"><span class="circle dot1"></span><span class="circle dot2"></span><span class="circle dot3"></span></span>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#chat').children('.bubble').each(function(index, element) {
+                setTimeout(function() {
+                    if($(element).hasClass("bubbleRight") || $(element).hasClass("bubbleRightImg")) {
+                        $(element).addClass("bubbleRightAnimate");
+                    }
+                    else if($(element).hasClass("bubbleLeft") || $(element).hasClass("bubbleLeftImg")) {
+                        $(element).addClass("bubbleLeftAnimate");
+                    }
+                    $('html, body').animate({
+                        scrollTop: $(element).offset().top
+                    }, 2000);
+                }, 500 + (index * 2000));
+            });
+        });
+    </script>
+</body>
+</html>
