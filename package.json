@@ -11,5 +11,5 @@
     "grunt-contrib-watch": "*",
     "grunt-browser-sync": "*"
   },
-  "private": "true",
+  "private": "true"
 }

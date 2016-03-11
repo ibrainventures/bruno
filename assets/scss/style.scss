@@ -33,9 +33,10 @@
 	background: #fcfcfc;
 	border: solid 1px black;
 	width: 500px;
-	height: 690px;
+	height: auto;
 	height:auto;
 	margin: 10px auto 10px auto;
+	padding-bottom: 10px;
 	overflow: hidden;
 }
 
@@ -92,9 +93,18 @@
 }
 
 @keyframes bubble_right {
-	100% { right: 0; }
+	0% { right: -400px}
+	100% { right: 0px; }
 }
 
+.bubbleRightAnimateExit {
+	animation: bubble_right_exit 0.75s forwards;
+}
+
+@keyframes bubble_right_exit {
+	0% { right: 0px; }
+	100% { right: -400px; }
+}
 
 .bubbleRightImg img {
 	max-width: 100%;
@@ -135,9 +145,23 @@
 }
 
 @keyframes bubble_left {
-	100% { left: 0; }
+	0% { left: -400px; }
+	100% { left: 0px; }
+}
+
+.bubbleLeftAnimateExit {
+	animation: bubble_left_exit 0.75s forwards;
+}
+
+@keyframes bubble_left_exit {
+	0% { left: 0px; }
+	100% { left: -400px; }
 }
 
 .bubbleTyping {
 	padding: 7px 10px 7px 10px;
+}
+
+.green {
+	background-color: green !important;
 }

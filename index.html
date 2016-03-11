@@ -7,78 +7,6 @@
 </head>
 <body>
     <div id="chat">
-        <div class="bubble bubbleRight bubble3">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.
-        </div>
-        <div class="bubble bubbleLeft bubble3">
-            Sorry, I don't speak Spanish. 🙀
-        </div>
-        <div class="bubble bubbleLeft">
-            Oh, wait.
-        </div>
-        <div class="bubble bubbleLeft">
-            Is that the placeholder psudo-latin designers use? 🤓
-        </div>
-        <div class="bubble bubbleRight">
-            You got it. 👌
-        </div>
-        <div class="bubble bubbleRight">
-            How does a hash sound for dinner by the way?
-        </div>
-        <div class="bubble bubbleRightImg">
-            <img src="assets/img/hash.jpg" alt="breakfast">
-        </div>
-        <div class="bubble bubbleLeft">
-            That looks amazing.
-        </div>
-        <div class="bubble bubbleRight bubble3">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.
-        </div>
-        <div class="bubble bubbleLeft bubble3">
-            Sorry, I don't speak Spanish. 🙀
-        </div>
-        <div class="bubble bubbleLeft">
-            Oh, wait.
-        </div>
-        <div class="bubble bubbleLeft">
-            Is that the placeholder psudo-latin designers use? 🤓
-        </div>
-        <div class="bubble bubbleRight">
-            You got it. 👌
-        </div>
-        <div class="bubble bubbleRight">
-            How does a hash sound for dinner by the way?
-        </div>
-        <div class="bubble bubbleRightImg">
-            <img src="assets/img/hash.jpg" alt="breakfast">
-        </div>
-        <div class="bubble bubbleLeft">
-            That looks amazing.
-        </div>
-        <div class="bubble bubbleRight bubble3">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.
-        </div>
-        <div class="bubble bubbleLeft bubble3">
-            Sorry, I don't speak Spanish. 🙀
-        </div>
-        <div class="bubble bubbleLeft">
-            Oh, wait.
-        </div>
-        <div class="bubble bubbleLeft">
-            Is that the placeholder psudo-latin designers use? 🤓
-        </div>
-        <div class="bubble bubbleRight">
-            You got it. 👌
-        </div>
-        <div class="bubble bubbleRight">
-            How does a hash sound for dinner by the way?
-        </div>
-        <div class="bubble bubbleRightImg">
-            <img src="assets/img/hash.jpg" alt="breakfast">
-        </div>
-        <div class="bubble bubbleLeft">
-            That looks amazing.
-        </div>
         <div class="bubble bubbleLeft bubbleTyping">
             <span class="typing"><span class="circle dot1"></span><span class="circle dot2"></span><span class="circle dot3"></span></span>
         </div>
@@ -87,7 +15,66 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#chat').children('.bubble').each(function(index, element) {
+            var json = [
+                {
+                    'bubble': 'bubbleRight',
+                    'contents': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.'
+                },
+                {
+                    'bubble': 'bubbleLeft',
+                    'contents': 'Sorry, I don\'t speak Spanish. 😱'
+                },
+                {
+                    'bubble': 'bubbleLeft',
+                    'contents': 'Oh, wait.'
+                },
+                {
+                    'bubble': 'bubbleLeft',
+                    'contents': 'Is that the placeholder psudo-latin designers use? 🤓'
+                },
+                {
+                    'bubble': 'bubbleRight',
+                    'contents': 'How does a hash sound for dinner by the way?'
+                },
+                {
+                    'bubble': 'bubbleRightImg',
+                    'contents': 'hash.jpg'
+                },
+                {
+                    'bubble': 'bubbleLeft',
+                    'contents': 'That looks amazing.'
+                }
+            ];
+
+            $.each(json, function (index, value) {
+                var message;
+                if(value.bubble === 'bubbleRight' || value.bubble === 'bubbleLeft') {
+                    message = "<div class=\"bubble " + value.bubble + " " + value.bubble + "Animate\">" + value.contents + "</div>";
+                }
+                else if(value.bubble === 'bubbleRightImg' || value.bubble === 'bubbleLeftImg') {
+                    message = "<div class=\"bubble " + value.bubble + " " + value.bubble.substring(0,value.bubble.length-3) + "Animate\">" + "<img src=\"assets/img/" + value.contents + "\" alt=\"image\">" + "</div>";
+                }
+                else {
+                    message = "<div class=\"bubble" + value.bubble + "\">" + "Something went wrong. :/" + "</div>";
+                }
+                setTimeout(function() {
+                    $('#chat').append(message);
+                    setTimeout(function() {
+                        $('.bubble:last-child').addClass('green');
+                        // Hack to re-trigger animations
+                        $('.bubble:last-child').offsetWidth = $('.bubble:last-child').offsetWidth;
+                        $('.bubble:last-child').addClass(value.bubble + 'AnimateExit');
+                        setTimeout(function() {
+                            $('.bubble:last-child').remove();
+                        }, 300);
+                    }, 1500);
+                }, 500 + (index * 2000));
+
+
+            });
+
+
+            /* $('#chat').children('.bubble').each(function(index, element) {
                 setTimeout(function() {
                     if($(element).hasClass("bubbleRight") || $(element).hasClass("bubbleRightImg")) {
                         $(element).addClass("bubbleRightAnimate");
@@ -99,7 +86,7 @@
                         scrollTop: $(element).offset().top
                     }, 2000);
                 }, 500 + (index * 2000));
-            });
+            }); */
         });
     </script>
 </body>
