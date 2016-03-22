@@ -5814,13 +5814,20 @@ body {
   height: 100%;
   margin: 0px; }
 
+body {
+  background-color: gray;
+  margin: 0px;
+  background-color: #fcfcfc;
+  padding-top: 60px; }
+
 .navbar-brand {
   position: absolute;
   width: 100%;
   left: 0;
   text-align: center;
   margin: auto;
-  color: #333 !important; }
+  color: #333 !important;
+  letter-spacing: 2px; }
 
 .navbar-nav {
   margin-left: -15px !important; }
@@ -5845,7 +5852,6 @@ body {
   /* Pad bottom by footer height */
   padding: 0 0 50px; }
 
-/* Set the fixed height of the footer here */
 .footer {
   height: 50px;
   background-color: #f5f5f5;
@@ -5857,45 +5863,6 @@ body {
   margin: 5px auto 5px auto;
   border-radius: 50px;
   background-color: white; }
-
-body {
-  background-color: gray;
-  margin: 0px;
-  background-color: #fcfcfc;
-  padding-top: 60px; }
-
-.circle {
-  display: inline-block;
-  width: 0.75em;
-  height: 0.75em;
-  border-radius: 0.75em;
-  background: gray;
-  margin: 0em 0.1em 0em 0.1em;
-  animation: color_change 1.5s infinite; }
-
-@keyframes color_change {
-  0% {
-    background: gray; }
-  25% {
-    background: #ccc; }
-  50% {
-    background: gray; }
-  75% {
-    background: gray; }
-  100% {
-    background: gray; } }
-.dot1 {
-  animation-delay: 0s; }
-
-.dot2 {
-  animation-delay: .33s; }
-
-.dot3 {
-  animation-delay: .66s; }
-
-#bruno-container {
-  background-color: #fcfcfc;
-  margin: 0px 0px 0px 0px; }
 
 #bruno-chat {
   background-color: #fcfcfc;
@@ -5960,17 +5927,14 @@ body {
     right: 0px; }
   100% {
     right: -400px; } }
-.bubbleRightImg img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 10px; }
-
 .bubbleLeftContainer {
   float: left;
   text-align: left;
   width: 100%;
+  height: 100%;
   margin-left: 15px;
-  background-color: red; }
+  background-color: none;
+  overflow: visible; }
 
 .bubbleLeft {
   float: left;
@@ -6024,7 +5988,33 @@ body {
 .bubbleTyping {
   padding: 7px 10px 7px 10px; }
 
-.bubbleHidden {
-  display: hidden; }
+.circle {
+  display: inline-block;
+  width: 0.75em;
+  height: 0.75em;
+  border-radius: 0.75em;
+  background: gray;
+  margin: 0em 0.1em 0em 0.1em;
+  animation: color_change 1.5s infinite; }
+
+@keyframes color_change {
+  0% {
+    background: gray; }
+  25% {
+    background: #ccc; }
+  50% {
+    background: gray; }
+  75% {
+    background: gray; }
+  100% {
+    background: gray; } }
+.dot1 {
+  animation-delay: 0s; }
+
+.dot2 {
+  animation-delay: .33s; }
+
+.dot3 {
+  animation-delay: .66s; }
 
 /*# sourceMappingURL=style.css.map */

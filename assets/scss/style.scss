@@ -1,11 +1,20 @@
 @import '../lib/bootstrap-sass/assets/stylesheets/_bootstrap';
 
+// Fill Page
 html,
 body {
   height: 100%;
 	margin: 0px;
 }
 
+body {
+	background-color: gray;
+	margin: 0px;
+	background-color: #fcfcfc;
+	padding-top: 60px; //Navbar Offset
+}
+
+// Navbar Styles
 .navbar-brand
 {
     position: absolute;
@@ -14,6 +23,7 @@ body {
     text-align: center;
     margin: auto;
 	color: #333 !important;
+    letter-spacing: 2px;
 }
 
 .navbar-nav{
@@ -36,6 +46,7 @@ body {
 	float: right!important;
 }
 
+// Sticky Footer Wrapper
 .wrap {
   min-height: 100%;
   height: auto;
@@ -45,14 +56,14 @@ body {
   padding: 0 0 50px;
 }
 
-/* Set the fixed height of the footer here */
+// Sticky Footer
 .footer {
   height: 50px;
   background-color: #f5f5f5;
-
   border-top: solid #ccc 1px;
 }
 
+// Fake Text Box
 .commands {
 	height: 40px;
 	width: 100%;
@@ -61,49 +72,7 @@ body {
 	background-color: white;
 }
 
-body {
-	background-color: gray;
-	margin: 0px;
-	background-color: #fcfcfc;
-	padding-top: 60px;
-}
-
-.circle {
-	display: inline-block;
-	width: 0.75em;
-	height: 0.75em;
-	border-radius: 0.75em;
-	background: gray;
-	margin: 0em 0.1em 0em 0.1em;
-
-	animation: color_change 1.5s infinite;
-}
-
-@keyframes color_change {
-	0% { background: gray; }
-	25% { background: #ccc; }
-	50% { background: gray; }
-	75% { background: gray; }
-	100% { background: gray; }
-}
-
-.dot1 {
-	animation-delay: 0s;
-}
-
-.dot2 {
-	animation-delay: .33s;
-}
-
-.dot3 {
-	animation-delay: .66s;
-}
-
-#bruno-container {
-	background-color: #fcfcfc;
-	margin: 0px 0px 0px 0px;
-}
-
+// Bruno-Specific Styles
 #bruno-chat {
 	background-color: #fcfcfc;
 	margin: 0px 0px 0px 0px;
@@ -111,6 +80,7 @@ body {
 	overflow: hidden;
 }
 
+// General Bubble Styles
 .bubble {
 	max-width: 50%;
 	padding: 7px 10px 7px 10px;
@@ -122,6 +92,7 @@ body {
 	font-family: Arial;
 }
 
+// Right Bubble Stylings
 .bubbleRight {
 	float: right;
 	text-align: right;
@@ -184,22 +155,18 @@ body {
 	100% { right: -400px; }
 }
 
-.bubbleRightImg img {
-	max-width: 100%;
-	max-height: 100%;
-
-	border-radius: 10px;
-}
-
+// Left Bubble Stylings
 .bubbleLeftContainer {
     float: left;
 	text-align: left;
 
     width: 100%;
+    height: 100%;
 
 	margin-left: 15px;
 
-    background-color: red;
+    background-color: none;
+    overflow: visible;
 }
 
 .bubbleLeft {
@@ -228,7 +195,6 @@ body {
 	left: -10px;
 	content: "";
 }
-
 
 .bubbleLeftImg {
 	float: left;
@@ -267,8 +233,37 @@ body {
 
 .bubbleTyping {
 	padding: 7px 10px 7px 10px;
+    //position: absolute; top: 0; left: 0;
 }
 
-.bubbleHidden {
-    display: hidden;
+// Typing Indicator Bubble
+.circle {
+	display: inline-block;
+	width: 0.75em;
+	height: 0.75em;
+	border-radius: 0.75em;
+	background: gray;
+	margin: 0em 0.1em 0em 0.1em;
+
+	animation: color_change 1.5s infinite;
+}
+
+@keyframes color_change {
+	0% { background: gray; }
+	25% { background: #ccc; }
+	50% { background: gray; }
+	75% { background: gray; }
+	100% { background: gray; }
+}
+
+.dot1 {
+	animation-delay: 0s;
+}
+
+.dot2 {
+	animation-delay: .33s;
+}
+
+.dot3 {
+	animation-delay: .66s;
 }
