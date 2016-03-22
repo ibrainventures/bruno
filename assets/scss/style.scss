@@ -159,6 +159,13 @@ body {
 	right: -50vw;
 }
 
+.bubbleRightImg img {
+	max-width: 100%;
+	max-height: 100%;
+
+	border-radius: 10px;
+}
+
 .bubbleRightAnimate {
 	animation: bubble_right 0.75s forwards;
 }
@@ -211,6 +218,24 @@ body {
 	content: "";
 }
 
+
+.bubbleLeftImg {
+	float: left;
+	text-align: left;
+
+	margin-right: 15px;
+	padding: 0px;
+
+	left: -50vw;
+}
+
+.bubbleLeftImg img {
+	max-width: 100%;
+	max-height: 100%;
+
+	border-radius: 10px;
+}
+
 .bubbleLeftAnimate {
 	animation: bubble_left 0.75s forwards;
 }
@@ -231,4 +256,8 @@ body {
 
 .bubbleTyping {
 	padding: 7px 10px 7px 10px;
+}
+
+.bubbleHidden {
+    display: hidden;
 }
