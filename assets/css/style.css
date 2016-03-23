@@ -5960,7 +5960,7 @@ body {
 .bubbleLeftImg {
   float: left;
   text-align: left;
-  margin-right: 15px;
+  margin-left: 15px;
   padding: 0px;
   left: -50vw; }
 

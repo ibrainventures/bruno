@@ -1,3 +1,4 @@
+// Json, will get moved to a file later.
 var json = [
     {
         'bubble': 'bubbleRight',
@@ -93,16 +94,18 @@ var json = [
         'bubble': 'bubbleRight',
         'delay': 200,
         'typing': 100,
-        'contents': 'No.'
+        'contents': 'Sure.'
     },
     {
         'bubble': 'bubbleLeft',
         'delay': 200,
         'typing': 100,
-        'contents': '😱'
+        'contents': '😎'
     }
 ];
 
+// Appends and removes a left typing bubble indicator to the provided id. 'typing' represents how long in ms the bubble stays on screen.
+// returns a promise
 var bubbleTyping = function(id, typing) {
     return new Promise(function(resolve, reject) {
         $('> .bubbleLeftContainer', id).last().append("<div class=\"bubble bubbleLeft bubbleLeftAnimate bubbleTyping\"><span class=\"typing\"><span class=\"circle dot1\"></span><span class=\"circle dot2\"></span><span class=\"circle dot3\"></span></span></div>").one('animationend', function() {
@@ -118,10 +121,13 @@ var bubbleTyping = function(id, typing) {
     });
 };
 
+// Appends a left or right bubble to the provided id. Returns a promise.
+// Takes a single json message as an argument.
 bubble = function(id, value) {
     return new Promise(function(resolve, reject) {
         var message;
 
+        // Construct the bubble's div based on whether or not it is an image.
         if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleRight') {
             message = "<div class=\"bubble " + value.bubble + " " + value.bubble + "Animate\">" + value.contents + "</div>";
         }
@@ -129,9 +135,11 @@ bubble = function(id, value) {
             message = "<div class=\"bubble " + value.bubble + " " + value.bubble.substring(0,value.bubble.length-3) + "Animate\">" + "<img src=\"assets/img/" + value.contents + "\" alt=\"image\">" + "</div>";
         }
 
+        // If the bubble is on the left, call bubbleTyping to provide the typing indicator.
         if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleLeftImg') {
             $(id).append("<div class=\"bubbleLeftContainer\"></div>");
             bubbleTyping(id, value.typing).then(function() {
+                // setTimeout pauses before posting the bubble based off the delay variable.
                 setTimeout (function() {
                     $('> .bubbleLeftContainer', id).last().append(message).one('animationend', function() {
                         $("html, body").animate({ scrollTop: $(document).height() }, "slow");
@@ -140,7 +148,9 @@ bubble = function(id, value) {
                 }, value.delay);
             });
         }
+        // If the bubble is on the right, immediately post.
         else if(value.bubble === 'bubbleRight' || value.bubble === 'bubbleRightImg') {
+            // setTimeout pauses before posting the bubble based off the delay variable.
             setTimeout (function() {
                 $(id).append(message).one('animationend', function() {
                     $("html, body").animate({ scrollTop: $(document).height() }, "slow");
@@ -148,12 +158,15 @@ bubble = function(id, value) {
                 });
             }, value.delay);
         }
+        // Otherwise, reject the promise.
         else {
             reject(Error("Something went wrong!"));
         }
     });
 };
 
+// Posts a set of json messages as bubbles to the provided id.
+// Returns a promise.
 var display = function(id, data) {
     return new Promise(function(resolve, reject) {
         var sequence = Promise.resolve();
@@ -165,7 +178,7 @@ var display = function(id, data) {
     });
 };
 
-
 $(document).ready(function() {
+    // TODO: Read json from a file.
     display('#bruno-chat', json);
 });
