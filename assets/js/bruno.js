@@ -1,109 +1,3 @@
-// Json, will get moved to a file later.
-var json = [
-    {
-        'bubble': 'bubbleRight',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.'
-    },
-    {
-        'bubble': 'bubbleLeft',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'Sorry, I don\'t speak Spanish. 😱'
-    },
-    {
-        'bubble': 'bubbleLeft',
-        'delay': 1000,
-        'typing': 2000,
-        'contents': 'Oh, wait.'
-    },
-    {
-        'bubble': 'bubbleLeft',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'Is that the placeholder psudo-latin designers use? 🤓'
-    },
-    {
-        'bubble': 'bubbleRight',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'You got it. 👌'
-    },
-    {
-        'bubble': 'bubbleRight',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'How does a hash sound for dinner by the way?'
-    },
-    {
-        'bubble': 'bubbleRightImg',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'hash.jpg'
-    },
-    {
-        'bubble': 'bubbleLeft',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'That looks amazing.'
-    },
-    {
-        'bubble': 'bubbleRight',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'I know right?'
-    },
-    {
-        'bubble': 'bubbleLeft',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'More tasty noms pls. 😻'
-    },
-    {
-        'bubble': 'bubbleRight',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'Hey wait.'
-    },
-    {
-        'bubble': 'bubbleRight',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'Why are you called "Bruno"?'
-    },
-    {
-        'bubble': 'bubbleLeft',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'It\'s a Ms. Marvel reference. Bruno is her nerdy best friend.'
-    },
-    {
-        'bubble': 'bubbleLeftImg',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'bruno.png'
-    },
-    {
-        'bubble': 'bubbleLeft',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'Am I your nerdy best friend?'
-    },
-    {
-        'bubble': 'bubbleRight',
-        'delay': 200,
-        'typing': 100,
-        'contents': 'Sure.'
-    },
-    {
-        'bubble': 'bubbleLeft',
-        'delay': 200,
-        'typing': 100,
-        'contents': '😎'
-    }
-];
-
 // Appends and removes a left typing bubble indicator to the provided id. 'typing' represents how long in ms the bubble stays on screen.
 // returns a promise
 var bubbleTyping = function(id, typing) {
@@ -165,6 +59,37 @@ bubble = function(id, value) {
     });
 };
 
+var updateFooterHeight = function(currentHeight) {
+    $('footer-animations').text('@keyframes wrap_slide_up {0% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}100% {margin: 0 auto -' + currentHeight + 'px auto;padding: 0 0 ' + currentHeight + 'px 0;}}@keyframes wrap_slide_down {0% {margin: 0 auto -' + currentHeight + 'px auto;padding: 0 0 ' + currentHeight + 'px 0;}100% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}}@keyframes footer_slide_up {0% { height: 0px; }100% { height: ' + currentHeight + 'px; }}@keyframes footer_slide_down {0% { height: ' + currentHeight + 'px; }100% { height: 0px; }}');
+};
+
+$('.settings').on('click', function (e) {
+    $('#footer').removeClass('footerHide');
+    $('.wrap').removeClass('wrapHide');
+    $('#footer').offsetWidth = $('.footer').offsetWidth;
+    $('.wrap').offsetWidth = $('.wrap').offsetWidth;
+    $('#footer').addClass('footerShow');
+    $('.wrap').addClass('wrapShow');
+    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+    console.log("Hello!");
+});
+
+$('.details').on('click', function (e) {
+    $('#footer').removeClass('footerShow');
+    $('.wrap').removeClass('wrapShow');
+    $('#footer').offsetWidth = $('.footer').offsetWidth;
+    $('.wrap').offsetWidth = $('.wrap').offsetWidth;
+    $('#footer').addClass('footerHide');
+    $('.wrap').addClass('wrapHide');
+    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+    console.log("Howdy!");
+});
+
+
+$('.choices').on('click', function (e) {
+    display('#bruno-chat', json);
+});
+
 // Posts a set of json messages as bubbles to the provided id.
 // Returns a promise.
 var display = function(id, data) {
@@ -179,6 +104,5 @@ var display = function(id, data) {
 };
 
 $(document).ready(function() {
-    // TODO: Read json from a file.
-    display('#bruno-chat', json);
+    //display('#bruno-chat', json);
 });

@@ -16,10 +16,10 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#">〈 Settings</a></li>
+            <li><a class="settings">〈 Settings</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Details</a></li>
+            <li><a class="details">Details</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -31,14 +31,58 @@
         </div>
     </div>
 
-    <div class="footer">
+    <!-- Need to be in HTML for Jquery adjustments -->
+    <style id="footer-animations">
+        @keyframes wrap_slide_up {
+        	0% {
+                margin: 0 auto 0px auto;
+                padding: 0 0 0px 0;
+            }
+        	100% {
+                margin: 0 auto -55px auto;
+                padding: 0 0 55px 0;
+            }
+        }
+        @keyframes wrap_slide_down {
+        	0% {
+                margin: 0 auto -55px auto;
+                padding: 0 0 55px 0;
+            }
+        	100% {
+                margin: 0 auto 0px auto;
+                padding: 0 0 0px 0;
+            }
+        }
+        @keyframes footer_slide_up {
+            0% { height: 0px; }
+            100% { height: 55px; }
+        }
+        @keyframes footer_slide_down {
+        	0% { height: 55px; }
+        	100% { height: 0px; }
+        }
+    </style>
+
+    <div id="footer">
         <div class="container-fluid">
-        <div class="commands"></div>
+            <div class="commands">
+                <a class="choices">
+                    <span class="choice">
+                        Is there anything else you can do?
+                    </span>
+                </a>
+                <a class="choices">
+                    <span class="choice">
+                        That's all for now.
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
 
     <script src="assets/lib/jquery/dist/jquery.min.js"></script>
     <script src="assets/lib/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+    <script src="assets/json/messages.json"></script>
     <script src="assets/js/bruno.js"></script>
 </body>
 </html>

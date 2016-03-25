@@ -1,0 +1,104 @@
+var json = [
+    {
+        'bubble': 'bubbleRight',
+        'delay': 0,
+        'typing': 100,
+        'contents': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'Sorry, I don\'t speak Spanish. 😱'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'Oh, wait.'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'Is that the placeholder psudo-latin designers use? 🤓'
+    },
+    {
+        'bubble': 'bubbleRight',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'You got it. 👌'
+    },
+    {
+        'bubble': 'bubbleRight',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'How does a hash sound for dinner by the way?'
+    },
+    {
+        'bubble': 'bubbleRightImg',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'hash.jpg'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'That looks amazing.'
+    },
+    {
+        'bubble': 'bubbleRight',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'I know right?'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'More tasty noms pls. 😻'
+    },
+    {
+        'bubble': 'bubbleRight',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'Hey wait.'
+    },
+    {
+        'bubble': 'bubbleRight',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'Why are you called "Bruno"?'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'It\'s a Ms. Marvel reference. Bruno is her nerdy best friend.'
+    },
+    {
+        'bubble': 'bubbleLeftImg',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'bruno.png'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'Am I your nerdy best friend?'
+    },
+    {
+        'bubble': 'bubbleRight',
+        'delay': 0,
+        'typing': 0,
+        'contents': 'Sure.'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 0,
+        'contents': '😎'
+    }
+];
