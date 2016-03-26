@@ -107,14 +107,20 @@ var json1 = [
     {
         'bubble': 'bubbleLeft',
         'delay': 500,
-        'typing': 2000,
+        'typing': 1500,
         'contents': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.'
     },
     {
         'bubble': 'bubbleLeft',
         'delay': 0,
-        'typing': 2000,
+        'typing': 1000,
         'contents': 'My Lorem Ipsum game is on point.'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 500,
+        'contents': '👌'
     }
 ];
 
@@ -130,6 +136,12 @@ var jsonA = [
         'delay': 0,
         'typing': 2000,
         'contents': 'Pseudo-latin actually. Designers mixed around letters in a common latin passage to simulate a generic block of text.'
+    },
+    {
+        'bubble': 'bubbleLeft',
+        'delay': 0,
+        'typing': 2000,
+        'contents': '😁'
     }
 ];
 

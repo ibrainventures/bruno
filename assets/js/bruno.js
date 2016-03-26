@@ -118,11 +118,6 @@ $('.choicesA').on('click', function (e) {
     return new Promise(function(resolve, reject) {
         hide().then(function() {
             display('#bruno-chat', jsonA);
-            /*bubble(id, jsonA[0]).then(function() {
-                bubble(id, jsonA[1]).then(function() {
-                    resolve();
-                });
-            });*/
         });
     });
 });
@@ -130,43 +125,24 @@ $('.choicesA').on('click', function (e) {
 $('.choicesB').on('click', function (e) {
     return new Promise(function(resolve, reject) {
         hide().then(function() {
-        display('#bruno-chat', jsonB);
-        /*bubble(id, jsonB[0]).then(function() {
-            bubble(id, jsonB[1]).then(function() {
-                resolve();
-            });
-        });*/
+            display('#bruno-chat', jsonB);
         });
     });
 });
 
 // Posts a set of json messages as bubbles to the provided id.
 // Returns a promise.
-/*var display = function(id, data) {
+var display = function(id, data) {
     return new Promise(function(resolve, reject) {
         var sequence = Promise.resolve();
         data.forEach(function(value) {
             sequence = sequence.then(function() {
-                console.log(value);
                 return bubble(id, value);
             });
-            console.log("Howdy");
         });
-        console.log("Hey");
-        resolve();
-    });
-};*/
-
-var display = function(id, data) {
-    return new Promise(function(resolve, reject) {
-        bubble(id, data[0]).then(function() {
-            console.log("data[0] done");
-            bubble(id, data[1]).then(function() {
-                console.log("data[1] done");
-                resolve();
-            });
+        sequence.then(function() {
+            resolve();
         });
-        console.log("Really?");
     });
 };
 
