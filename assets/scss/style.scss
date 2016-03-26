@@ -57,16 +57,16 @@ body {
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -55px auto;
+  margin: 0 auto -0px auto;
   /* Pad bottom by footer height */
-  padding: 0 0 55px 0;
+  padding: 0 0 0px 0;
 }
 
 .wrapShow {
 	animation: wrap_slide_up 0.75s forwards;
 }
 
-@keyframes wrap_slide_up {
+/*@keyframes wrap_slide_up {
 	0% {
         margin: 0 auto 0px auto;
         padding: 0 0 0px 0;
@@ -75,13 +75,13 @@ body {
         margin: 0 auto -55px auto;
         padding: 0 0 55px 0;
     }
-}
+}*/
 
 .wrapHide {
 	animation: wrap_slide_down 0.75s forwards;
 }
 
-@keyframes wrap_slide_down {
+/*@keyframes wrap_slide_down {
 	0% {
         margin: 0 auto -55px auto;
         padding: 0 0 55px 0;
@@ -90,11 +90,11 @@ body {
         margin: 0 auto 0px auto;
         padding: 0 0 0px 0;
     }
-}
+}*/
 
 // Sticky Footer
 #footer {
-  //height: 50px;
+  height: 0px;
   background-color: #f8f8f8;
   //border-top: solid #e7e7e7 1px;
   overflow: hidden;
@@ -104,19 +104,19 @@ body {
 	animation: footer_slide_up 0.75s forwards;
 }
 
-@keyframes footer_slide_up {
+/*@keyframes footer_slide_up {
 	0% { height: 0px; }
 	100% { height: 55px; }
-}
+}*/
 
 .footerHide {
 	animation: footer_slide_down 0.75s forwards;
 }
 
-@keyframes footer_slide_down {
+/*@keyframes footer_slide_down {
 	0% { height: 55px; }
 	100% { height: 0px; border: none; }
-}
+}*/
 
 // Fake Text Box
 .commands {
@@ -156,6 +156,52 @@ body {
 	bottom: 0;
 	right: -10px;
     content: "";
+}
+
+a.choicesA {
+    text-decoration: none !important;
+}
+
+.choicesA {
+    text-decoration: none;
+    a:hover {
+        text-decoration: none !important;
+    }
+    a:focus {
+        text-decoration: none !important;
+    }
+    a:hover {
+        text-decoration: none !important;
+    }
+    a:hover, a:focus {
+        text-decoration: none !important;
+    }
+    a:active {
+        text-dcoration: none !important;
+    }
+}
+
+a.choicesB {
+    text-decoration: none !important;
+}
+
+.choicesB {
+    text-decoration: none;
+    a:hover {
+        text-decoration: none !important;
+    }
+    a:focus {
+        text-decoration: none !important;
+    }
+    a:hover {
+        text-decoration: none !important;
+    }
+    a:hover, a:focus {
+        text-decoration: none !important;
+    }
+    a:active {
+        text-dcoration: none !important;
+    }
 }
 
 // Bruno-Specific Styles
