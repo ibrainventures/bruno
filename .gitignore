@@ -1,4 +1,5 @@
 node_modules/
 assets/bower_components
+assets/lib
 .sass-cache
 .DS_Store

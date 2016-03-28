@@ -29,6 +29,8 @@ bubble = function(id, value) {
             message = "<div class=\"bubble " + value.bubble + " " + value.bubble.substring(0,value.bubble.length-3) + "Animate\">" + "<img src=\"assets/img/" + value.contents + "\" alt=\"image\">" + "</div>";
         }
 
+        message = emojione.unicodeToImage(message);
+
         // If the bubble is on the left, call bubbleTyping to provide the typing indicator.
         if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleLeftImg') {
             $(id).append("<div class=\"bubbleLeftContainer\"></div>");
