@@ -119,7 +119,7 @@ body {
 }*/
 
 // Fake Text Box
-.commands {
+#commands {
 	//height: 40px;
 	width: 100%;
 	margin: 5px auto 5px auto;
@@ -156,6 +156,29 @@ body {
 	bottom: 0;
 	right: -10px;
     content: "";
+}
+
+a.choices {
+    text-decoration: none !important;
+}
+
+.choices {
+    text-decoration: none;
+    a:hover {
+        text-decoration: none !important;
+    }
+    a:focus {
+        text-decoration: none !important;
+    }
+    a:hover {
+        text-decoration: none !important;
+    }
+    a:hover, a:focus {
+        text-decoration: none !important;
+    }
+    a:active {
+        text-dcoration: none !important;
+    }
 }
 
 a.choicesA {
@@ -295,7 +318,7 @@ a.choicesB {
     width: 100%;
     height: 100%;
 
-	margin-left: 15px;
+	margin-left: 0px;
 
     background-color: none;
     overflow: visible;

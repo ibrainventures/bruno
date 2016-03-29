@@ -30,6 +30,7 @@ bubble = function(id, value) {
         }
 
         message = emojione.unicodeToImage(message);
+        message = emojione.shortnameToImage(message);
 
         // If the bubble is on the left, call bubbleTyping to provide the typing indicator.
         if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleLeftImg') {
@@ -63,22 +64,17 @@ bubble = function(id, value) {
     });
 };
 
+/* Temporary Debug Function
 $('.details').on('click', function (e) {
     hide();
 });
 
-var updateFooterHeight = function(currentHeight) {
-    $('#footer-animations').text('@keyframes wrap_slide_up {0% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}100% {margin: 0 auto -'+currentHeight+'px auto;padding: 0 0 '+currentHeight+'px 0;}}@keyframes wrap_slide_down {0% {margin: 0 auto -'+currentHeight+'px auto;padding: 0 0 '+currentHeight+'px 0;}100% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}}@keyframes footer_slide_up {0% { height: 0px; }100% { height: '+currentHeight+'px; }}@keyframes footer_slide_down {0% { height: '+currentHeight+'px; }100% { height: 0px; }}');
-};
-
-var ask = function() {
-    show();
-};
-
+// Temporary Debug Function
 $('.settings').on('click', function (e) {
     show();
-});
+});*/
 
+// Hide Command Bar
 var hide = function () {
     return new Promise(function(resolve, reject) {
         $('#footer').removeClass('footerHide');
@@ -93,13 +89,38 @@ var hide = function () {
     });
 };
 
+
+// Function to update footer height before it is revealed.
+var updateFooterHeight = function(currentHeight) {
+    $('#footer-animations').text('@keyframes wrap_slide_up {0% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}100% {margin: 0 auto -'+currentHeight+'px auto;padding: 0 0 '+currentHeight+'px 0;}}@keyframes wrap_slide_down {0% {margin: 0 auto -'+currentHeight+'px auto;padding: 0 0 '+currentHeight+'px 0;}100% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}}@keyframes footer_slide_up {0% { height: 0px; }100% { height: '+currentHeight+'px; }}@keyframes footer_slide_down {0% { height: '+currentHeight+'px; }100% { height: 0px; }}');
+};
+
+// Function to set listenders for choices on command bar.
+// Kicks off new display loop based off of click command.
+var commandListeners = function(element) {
+    $(element).children().on('click', function (event) {
+        return new Promise(function(resolve, reject) {
+            hide().then(function() {
+                display('#bruno-chat', json, $(event.target).data('link')).then(function() {
+                    if('#commands' !== "") {
+                        show();
+                    }
+                });
+            });
+        });
+    });
+};
+
+// Show Command Bar
 var show = function() {
     return new Promise(function(resolve, reject) {
         $('#footer').removeClass('footerHide');
         $('.wrap').removeClass('wrapHide');
+        // Reset CSS Animations
         $('#footer').offsetWidth = $('.footer').offsetWidth;
         $('.wrap').offsetWidth = $('.wrap').offsetWidth;
         updateFooterHeight($('#footer > .container-fluid').height());
+        commandListeners('#commands');
         Promise.all([animatePromise('#footer', 'footerShow'), animatePromise('.wrap', 'wrapShow')]).then(function(values) {
             $("html, body").animate({ scrollTop: $(document).height() }, "slow");
         resolve();
@@ -115,39 +136,45 @@ var animatePromise = function(element, classToAdd) {
         });
 };
 
+// Helper Function for Display
+var findId = function (data, idToLookFor) {
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].id == idToLookFor) {
+            return(data[i]);
+        }
+    }
+}
 
-$('.choicesA').on('click', function (e) {
-    return new Promise(function(resolve, reject) {
-        hide().then(function() {
-            display('#bruno-chat', jsonA);
-        });
+// Add new choice bubbles to command bar.
+var updateCommands = function(choices) {
+    $('#commands').text('');
+    choices.forEach(function(value) {
+        $('#commands').append('<a class="choices" data-link="'+ value.link +'"><span class="choice" data-link="'+ value.link +'">' + value.contents + '</span></a>');
     });
-});
-
-$('.choicesB').on('click', function (e) {
-    return new Promise(function(resolve, reject) {
-        hide().then(function() {
-            display('#bruno-chat', jsonB);
-        });
-    });
-});
+}
 
 // Posts a set of json messages as bubbles to the provided id.
 // Returns a promise.
-var display = function(id, data) {
+var display = function(element, data, id) {
     return new Promise(function(resolve, reject) {
         var sequence = Promise.resolve();
-        data.forEach(function(value) {
+        var item = findId(data, id);
+        item.messages.forEach(function(value) {
             sequence = sequence.then(function() {
-                return bubble(id, value);
+                return bubble(element, value);
             });
         });
         sequence.then(function() {
+            updateCommands(item.choices);
             resolve();
         });
     });
 };
 
 $(document).ready(function() {
-    display('#bruno-chat', json1).then(show);
+    display('#bruno-chat', json, '1').then(function() {
+        if('#commands' !== "") {
+            show();
+        }
+    });
 });
