@@ -64,22 +64,52 @@ bubble = function(id, value) {
     });
 };
 
-/* Temporary Debug Function
+//Temporary Debug Function
 $('.details').on('click', function (e) {
-    hide();
+    return new Promise(function(resolve, reject) {
+        $('#lightbox').removeClass('lightbox-hide');
+        $('#lightbox').css({'display' : 'block'});
+        $('#lightbox').offsetWidth = $('#lightbox').offsetWidth;
+        animatePromise('#lightbox', 'lightbox-show').then(function() {
+            resolve();
+        });
+    });
 });
 
-// Temporary Debug Function
+/* Temporary Debug Function
 $('.settings').on('click', function (e) {
     show();
 });*/
+
+$('.lightbox-close').on('click', function (e) {
+    return new Promise(function(resolve, reject) {
+        $('#lightbox').removeClass('lightbox-show');
+        $('#lightbox').offsetWidth = $('#lightbox').offsetWidth;
+        animatePromise('#lightbox', 'lightbox-hide').then(function() {
+            $('#lightbox').css({'display' : 'none'});
+            resolve();
+        });
+    });
+});
+
+$('.lightbox-container').on('click', function (e) {
+    return new Promise(function(resolve, reject) {
+        $('#lightbox').removeClass('lightbox-show');
+        $('#lightbox').offsetWidth = $('#lightbox').offsetWidth;
+        animatePromise('#lightbox', 'lightboxHide').then(function() {
+            $('#lightbox').css({'display' : 'none'});
+            resolve();
+        });
+    });
+});
+
 
 // Hide Command Bar
 var hide = function () {
     return new Promise(function(resolve, reject) {
         $('#footer').removeClass('footerHide');
         $('.wrap').removeClass('wrapHide');
-        $('#footer').offsetWidth = $('.footer').offsetWidth;
+        $('#footer').offsetWidth = $('#footer').offsetWidth;
         $('.wrap').offsetWidth = $('.wrap').offsetWidth;
         updateFooterHeight($('#footer > .container-fluid').height());
         Promise.all([animatePromise('#footer', 'footerHide'), animatePromise('.wrap', 'wrapHide')]).then(function(values) {

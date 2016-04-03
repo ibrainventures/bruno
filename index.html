@@ -9,18 +9,37 @@
 </head>
 <body>
 
+    <div id="lightbox">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-lightbox">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <div class="navbar-brand">Image Preview</div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a class="lightbox-close fake-link">Close</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav><!-- /.navbar-lightbox -->
+        <div class="lightbox-container">
+            <img class="lightbox-image" src="assets/img/bruno.png" alt="Bruno">
+        </div>
+    </div>
+
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Bruno</a>
+          <div class="navbar-brand">Bruno</div>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a class="settings">〈 Settings</a></li>
+            <li><a class="settings fake-link">〈 Settings</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="details">Details</a></li>
+            <li><a class="details fake-link">Details</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
