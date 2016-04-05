@@ -26,7 +26,7 @@ bubble = function(id, value) {
             message = "<div class=\"bubble " + value.bubble + " " + value.bubble + "Animate\">" + value.contents + "</div>";
         }
         else if(value.bubble === 'bubbleLeftImg' || value.bubble === 'bubbleRightImg') {
-            message = "<div class=\"bubble " + value.bubble + " " + value.bubble.substring(0,value.bubble.length-3) + "Animate\">" + "<img src=\"assets/img/" + value.contents + "\" alt=\"image\">" + "</div>";
+            message = "<div class=\"bubble " + value.bubble + " " + value.bubble.substring(0,value.bubble.length-3) + "Animate\">" + "<img class=\"bubble-img-link fake-link\" src=\"assets/img/" + value.contents + "\" alt=\"image\">" + "</div>";
         }
 
         message = emojione.unicodeToImage(message);
@@ -64,6 +64,19 @@ bubble = function(id, value) {
     });
 };
 
+// Set listenders for picture messages.
+$('#bruno-chat').on('click', '.bubble-img-link', function (e) {
+    return new Promise(function(resolve, reject) {
+        $('#lightbox').removeClass('lightbox-hide');
+        $('#lightbox').css({'display' : 'block'});
+        $('#lightbox').offsetWidth = $('#lightbox').offsetWidth;
+        $('#lightbox-container').html('<img id=\"lightbox-image\" src=\"' + $(e.target).attr('src') + '\" alt=\"' + $(e.target).attr('src') + '\">');
+        animatePromise('#lightbox', 'lightbox-show').then(function() {
+            resolve();
+        });
+    });
+});
+
 //Temporary Debug Function
 $('.details').on('click', function (e) {
     return new Promise(function(resolve, reject) {
@@ -92,11 +105,11 @@ $('.lightbox-close').on('click', function (e) {
     });
 });
 
-$('.lightbox-container').on('click', function (e) {
+$('#lightbox-container').on('click', function (e) {
     return new Promise(function(resolve, reject) {
         $('#lightbox').removeClass('lightbox-show');
         $('#lightbox').offsetWidth = $('#lightbox').offsetWidth;
-        animatePromise('#lightbox', 'lightboxHide').then(function() {
+        animatePromise('#lightbox', 'lightbox-hide').then(function() {
             $('#lightbox').css({'display' : 'none'});
             resolve();
         });
