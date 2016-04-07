@@ -77,7 +77,7 @@ $('#bruno-chat').on('click', '.bubble-img-link', function (e) {
     });
 });
 
-//Temporary Debug Function
+/*Temporary Debug Function
 $('.details').on('click', function (e) {
     return new Promise(function(resolve, reject) {
         $('#lightbox').removeClass('lightbox-hide');
@@ -87,7 +87,7 @@ $('.details').on('click', function (e) {
             resolve();
         });
     });
-});
+});*/
 
 /* Temporary Debug Function
 $('.settings').on('click', function (e) {
@@ -215,9 +215,47 @@ var display = function(element, data, id) {
 };
 
 $(document).ready(function() {
-    display('#bruno-chat', json, '1').then(function() {
-        if('#commands' !== "") {
+    var visitCount = JSON.parse(localStorage.getItem('bruno-visitCount'));
+    if(visitCount === null) {
+        visitCount = 0;
+    }
+    console.log(visitCount);
+
+    var countMsg = 'You have visited this page ' + visitCount + ' times.'
+    localStorage.setItem('bruno-visitCount', JSON.stringify(visitCount+1));
+
+    var countJson = [
+        {
+            'id': '1',
+            'messages': [
+                {
+                    'bubble': 'bubbleLeft',
+                    'delay': 0,
+                    'typing': 0,
+                    'contents': countMsg
+                }
+            ],
+            'choices': []
+        }
+    ];
+
+    display('#bruno-chat', countJson, '1').then(function() {
+        display('#bruno-chat', json, '1').then(function() {
+            if($('#commands').children().length > 0) {
+                show();
+            }
+            else {
+            }
+        });
+    });
+
+    /*display('#bruno-chat', json, '1').then(function() {
+        if($('#commands').children().length > 0) {
+            console.log('if');
             show();
         }
-    });
+        else {
+            console.log('else');
+        }
+    });*/
 });

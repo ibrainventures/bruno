@@ -306,7 +306,7 @@ var json = [
                 'contents': 'Nice talking to you!'
             }
         ],
-        'choices': ''
+        'choices': []
     },
     {
         'id': '3b',
@@ -336,7 +336,7 @@ var json = [
                 'contents': 'Bye.'
             }
         ],
-        'choices': ''
+        'choices': []
     },
     {
         'id': '3c',
@@ -372,7 +372,7 @@ var json = [
                 'contents': 'Nice talking to you!'
             }
         ],
-        'choices': ''
+        'choices': []
     },
     {
         'id': '3d',
@@ -408,6 +408,6 @@ var json = [
                 'contents': 'Later!'
             }
         ],
-        'choices': ''
+        'choices': []
     }
 ];
