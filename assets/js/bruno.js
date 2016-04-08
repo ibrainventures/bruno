@@ -141,11 +141,11 @@ var updateFooterHeight = function(currentHeight) {
 // Function to set listenders for choices on command bar.
 // Kicks off new display loop based off of click command.
 var commandListeners = function(element) {
-    $(element).children().on('click', function (event) {
+    $(element).children().one('click', function (event) {
         return new Promise(function(resolve, reject) {
             hide().then(function() {
                 display('#bruno-chat', json, $(event.target).data('link')).then(function() {
-                    if('#commands' !== "") {
+                    if($('#commands').children().length > 0) {
                         show();
                     }
                 });
@@ -162,8 +162,6 @@ var show = function() {
         // Reset CSS Animations
         $('#footer').offsetWidth = $('.footer').offsetWidth;
         $('.wrap').offsetWidth = $('.wrap').offsetWidth;
-        updateFooterHeight($('#footer > .container-fluid').height());
-        commandListeners('#commands');
         Promise.all([animatePromise('#footer', 'footerShow'), animatePromise('.wrap', 'wrapShow')]).then(function(values) {
             $("html, body").animate({ scrollTop: $(document).height() }, "slow");
         resolve();
@@ -209,6 +207,8 @@ var display = function(element, data, id) {
         });
         sequence.then(function() {
             updateCommands(item.choices);
+            updateFooterHeight($('#footer > .container-fluid').height());
+            commandListeners('#commands');
             resolve();
         });
     });
