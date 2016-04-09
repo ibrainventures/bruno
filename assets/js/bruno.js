@@ -23,7 +23,14 @@ bubble = function(id, value) {
 
         // Construct the bubble's div based on whether or not it is an image.
         if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleRight') {
-            message = "<div class=\"bubble " + value.bubble + " " + value.bubble + "Animate\">" + value.contents + "</div>";
+            if(value.link) {
+                message = "<a class=\"bubble-link-container\" href=\"" + value.link + "\"><div class=\"bubble " + value.bubble + " " + value.bubble + "Animate\">" + value.contents + "</div>";
+                message = message + '<div class="bubble-link-icon pull-left"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> 〉</div></a><div class="clearfix"></div>';
+                message = message + '<a class=\"bubble-link-container\" href=\"' + value.link + '\"><div class="bubble-link-text pull-left">' + 'shutupandsitdown.com' + '</div></a>';
+            }
+            else {
+                message = "<div class=\"bubble " + value.bubble + " " + value.bubble + "Animate\">" + value.contents + "</div>";
+            }
         }
         else if(value.bubble === 'bubbleLeftImg' || value.bubble === 'bubbleRightImg') {
             message = "<div class=\"bubble " + value.bubble + " " + value.bubble.substring(0,value.bubble.length-3) + "Animate\">" + "<img class=\"bubble-img-link fake-link\" src=\"assets/img/" + value.contents + "\" alt=\"image\">" + "</div>";
@@ -34,7 +41,9 @@ bubble = function(id, value) {
 
         // If the bubble is on the left, call bubbleTyping to provide the typing indicator.
         if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleLeftImg') {
-            $(id).append("<div class=\"bubbleLeftContainer\"></div>");
+            var container = "<div class=\"bubbleLeftContainer\"></div>";
+            console.log(container);
+            $(id).append(container);
             bubbleTyping(id, value.typing).then(function() {
                 // setTimeout pauses before posting the bubble based off the delay variable.
                 setTimeout (function() {

@@ -6038,7 +6038,8 @@ a.choices {
   position: absolute;
   bottom: 0;
   left: -10px;
-  content: ""; }
+  content: "";
+  color: #eee; }
 
 .bubbleLeftImg {
   float: left;
@@ -6046,6 +6047,15 @@ a.choices {
   margin-left: 15px;
   padding: 0px;
   left: -50vw; }
+
+.bubble-link-icon {
+  margin: 15px 5px 10px 5px; }
+
+.bubble-link-text {
+  margin-top: -2px;
+  margin-left: 25px;
+  font-size: 12px;
+  color: gray; }
 
 .bubbleLeftImg img {
   max-width: 100%;
