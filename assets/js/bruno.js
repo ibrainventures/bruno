@@ -1,78 +1,15 @@
-// Appends and removes a left typing bubble indicator to the provided id. 'typing' represents how long in ms the bubble stays on screen.
-// returns a promise
-var bubbleTyping = function(id, typing) {
-    return new Promise(function(resolve, reject) {
-        $('> .bubbleLeftContainer', id).last().append("<div class=\"bubble bubbleLeft bubbleLeftAnimate bubbleTyping\"><span class=\"typing\"><span class=\"circle dot1\"></span><span class=\"circle dot2\"></span><span class=\"circle dot3\"></span></span></div>").one('animationend', function() {
-            setTimeout (function() {
-                $('> .bubbleLeftContainer > .bubbleTyping', id).last().addClass("bubbleLeftAnimateExit").one('animationend', function() {
-                    $('> .bubbleLeftContainer', id).css("min-height", function(){ return $(this).height(); });
-                    $('> .bubbleLeftContainer > .bubbleTyping', id).last().remove();
-                    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-                    resolve();
-                });
-            }, typing);
-        });
-    });
-};
+/*** DEBUG FUNCTIONS ***/
+/*Temporary Debug Function
+$('.details').on('click', function (e) {
+    show();
+});*/
 
-// Appends a left or right bubble to the provided id. Returns a promise.
-// Takes a single json message as an argument.
-bubble = function(id, value) {
-    return new Promise(function(resolve, reject) {
-        var message;
+/* Temporary Debug Function
+$('.settings').on('click', function (e) {
+    show();
+});*/
 
-        // Construct the bubble's div based on whether or not it is an image.
-        if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleRight') {
-            if(value.link) {
-                message = "<a class=\"bubble-link-container\" href=\"" + value.link + "\"><div class=\"bubble " + value.bubble + " " + value.bubble + "Animate\">" + value.contents + "</div>";
-                message = message + '<div class="bubble-link-icon pull-left"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> 〉</div></a><div class="clearfix"></div>';
-                message = message + '<a class=\"bubble-link-container\" href=\"' + value.link + '\"><div class="bubble-link-text pull-left">' + 'shutupandsitdown.com' + '</div></a>';
-            }
-            else {
-                message = "<div class=\"bubble " + value.bubble + " " + value.bubble + "Animate\">" + value.contents + "</div>";
-            }
-        }
-        else if(value.bubble === 'bubbleLeftImg' || value.bubble === 'bubbleRightImg') {
-            message = "<div class=\"bubble " + value.bubble + " " + value.bubble.substring(0,value.bubble.length-3) + "Animate\">" + "<img class=\"bubble-img-link fake-link\" src=\"assets/img/" + value.contents + "\" alt=\"image\">" + "</div>";
-        }
-
-        message = emojione.unicodeToImage(message);
-        message = emojione.shortnameToImage(message);
-
-        // If the bubble is on the left, call bubbleTyping to provide the typing indicator.
-        if(value.bubble === 'bubbleLeft' || value.bubble === 'bubbleLeftImg') {
-            var container = "<div class=\"bubbleLeftContainer\"></div>";
-            console.log(container);
-            $(id).append(container);
-            bubbleTyping(id, value.typing).then(function() {
-                // setTimeout pauses before posting the bubble based off the delay variable.
-                setTimeout (function() {
-                    $('> .bubbleLeftContainer', id).last().append(message).one('animationend', function() {
-                        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-                        console.log(message);
-                        resolve();
-                    });
-                }, value.delay);
-            });
-        }
-        // If the bubble is on the right, immediately post.
-        else if(value.bubble === 'bubbleRight' || value.bubble === 'bubbleRightImg') {
-            // setTimeout pauses before posting the bubble based off the delay variable.
-            setTimeout (function() {
-                $(id).append(message).one('animationend', function() {
-                    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-                    console.log(message);
-                    resolve();
-                });
-            }, value.delay);
-        }
-        // Otherwise, reject the promise.
-        else {
-            reject(Error("Something went wrong!"));
-        }
-    });
-};
-
+/*** LIGHTBOX FUNCTIONS ***/
 // Set listenders for picture messages.
 $('#bruno-chat').on('click', '.bubble-img-link', function (e) {
     return new Promise(function(resolve, reject) {
@@ -85,23 +22,6 @@ $('#bruno-chat').on('click', '.bubble-img-link', function (e) {
         });
     });
 });
-
-/*Temporary Debug Function
-$('.details').on('click', function (e) {
-    return new Promise(function(resolve, reject) {
-        $('#lightbox').removeClass('lightbox-hide');
-        $('#lightbox').css({'display' : 'block'});
-        $('#lightbox').offsetWidth = $('#lightbox').offsetWidth;
-        animatePromise('#lightbox', 'lightbox-show').then(function() {
-            resolve();
-        });
-    });
-});*/
-
-/* Temporary Debug Function
-$('.settings').on('click', function (e) {
-    show();
-});*/
 
 $('.lightbox-close').on('click', function (e) {
     return new Promise(function(resolve, reject) {
@@ -125,18 +45,33 @@ $('#lightbox-container').on('click', function (e) {
     });
 });
 
-
+/*** COMMAND BAR FUNCTIONS ***/
 // Hide Command Bar
 var hide = function () {
     return new Promise(function(resolve, reject) {
-        $('#footer').removeClass('footerHide');
-        $('.wrap').removeClass('wrapHide');
+        $('#footer').removeClass('footer-hide');
+        $('.wrap').removeClass('wrap-hide');
         $('#footer').offsetWidth = $('#footer').offsetWidth;
         $('.wrap').offsetWidth = $('.wrap').offsetWidth;
         updateFooterHeight($('#footer > .container-fluid').height());
-        Promise.all([animatePromise('#footer', 'footerHide'), animatePromise('.wrap', 'wrapHide')]).then(function(values) {
+        Promise.all([animatePromise('#footer', 'footer-hide'), animatePromise('.wrap', 'wrap-hide')]).then(function(values) {
             $("html, body").animate({ scrollTop: $(document).height() }, "slow");
             resolve();
+        });
+    });
+};
+
+// Show Command Bar
+var show = function() {
+    return new Promise(function(resolve, reject) {
+        $('#footer').removeClass('footer-hide');
+        $('.wrap').removeClass('wrap-hide');
+        // Reset CSS Animations
+        $('#footer').offsetWidth = $('.footer').offsetWidth;
+        $('.wrap').offsetWidth = $('.wrap').offsetWidth;
+        Promise.all([animatePromise('#footer', 'footer-show'), animatePromise('.wrap', 'wrap-show')]).then(function(values) {
+            $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        resolve();
         });
     });
 };
@@ -144,7 +79,7 @@ var hide = function () {
 
 // Function to update footer height before it is revealed.
 var updateFooterHeight = function(currentHeight) {
-    $('#footer-animations').text('@keyframes wrap_slide_up {0% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}100% {margin: 0 auto -'+currentHeight+'px auto;padding: 0 0 '+currentHeight+'px 0;}}@keyframes wrap_slide_down {0% {margin: 0 auto -'+currentHeight+'px auto;padding: 0 0 '+currentHeight+'px 0;}100% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}}@keyframes footer_slide_up {0% { height: 0px; }100% { height: '+currentHeight+'px; }}@keyframes footer_slide_down {0% { height: '+currentHeight+'px; }100% { height: 0px; }}');
+    $('#footer-animations').text('@keyframes wrap-slide-up {0% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}100% {margin: 0 auto -'+currentHeight+'px auto;padding: 0 0 '+currentHeight+'px 0;}}@keyframes wrap-slide-down {0% {margin: 0 auto -'+currentHeight+'px auto;padding: 0 0 '+currentHeight+'px 0;}100% {margin: 0 auto 0px auto;padding: 0 0 0px 0;}}@keyframes footer-slide-up {0% { height: 0px; }100% { height: '+currentHeight+'px; }}@keyframes footer-slide-down {0% { height: '+currentHeight+'px; }100% { height: 0px; }}');
 };
 
 // Function to set listenders for choices on command bar.
@@ -163,21 +98,15 @@ var commandListeners = function(element) {
     });
 };
 
-// Show Command Bar
-var show = function() {
-    return new Promise(function(resolve, reject) {
-        $('#footer').removeClass('footerHide');
-        $('.wrap').removeClass('wrapHide');
-        // Reset CSS Animations
-        $('#footer').offsetWidth = $('.footer').offsetWidth;
-        $('.wrap').offsetWidth = $('.wrap').offsetWidth;
-        Promise.all([animatePromise('#footer', 'footerShow'), animatePromise('.wrap', 'wrapShow')]).then(function(values) {
-            $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-        resolve();
-        });
+// Add new choice bubbles to command bar.
+var updateCommands = function(choices) {
+    $('#commands').text('');
+    choices.forEach(function(value) {
+        $('#commands').append('<a class="choices" data-link="'+ value.link +'"><span class="choice" data-link="'+ value.link +'">' + value.contents + '</span></a>');
     });
-};
+}
 
+/*** UTILITY FUNCTIONS ***/
 var animatePromise = function(element, classToAdd) {
         return new Promise(function(resolve, reject) {
             $(element).addClass(classToAdd).one('animationend', function() {
@@ -193,14 +122,6 @@ var findId = function (data, idToLookFor) {
             return(data[i]);
         }
     }
-}
-
-// Add new choice bubbles to command bar.
-var updateCommands = function(choices) {
-    $('#commands').text('');
-    choices.forEach(function(value) {
-        $('#commands').append('<a class="choices" data-link="'+ value.link +'"><span class="choice" data-link="'+ value.link +'">' + value.contents + '</span></a>');
-    });
 }
 
 // Posts a set of json messages as bubbles to the provided id.
@@ -224,21 +145,21 @@ var display = function(element, data, id) {
 };
 
 $(document).ready(function() {
-    var visitCount = JSON.parse(localStorage.getItem('bruno-visitCount'));
+    var visitCount = JSON.parse(localStorage.getItem('brunoVisitCount'));
     if(visitCount === null) {
         visitCount = 0;
     }
     console.log(visitCount);
 
     var countMsg = 'You have visited this page ' + visitCount + ' times.'
-    localStorage.setItem('bruno-visitCount', JSON.stringify(visitCount+1));
+    localStorage.setItem('brunoVisitCount', JSON.stringify(visitCount+1));
 
     var countJson = [
         {
             'id': '1',
             'messages': [
                 {
-                    'bubble': 'bubbleLeft',
+                    'bubble': 'bubble-left',
                     'delay': 0,
                     'typing': 0,
                     'contents': countMsg
@@ -257,14 +178,4 @@ $(document).ready(function() {
             }
         });
     });
-
-    /*display('#bruno-chat', json, '1').then(function() {
-        if($('#commands').children().length > 0) {
-            console.log('if');
-            show();
-        }
-        else {
-            console.log('else');
-        }
-    });*/
 });

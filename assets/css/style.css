@@ -5855,10 +5855,10 @@ body {
   /* Pad bottom by footer height */
   padding: 0 0 0px 0; }
 
-.wrapShow {
-  animation: wrap_slide_up 0.75s forwards; }
+.wrap-show {
+  animation: wrap-slide-up 0.75s forwards; }
 
-/*@keyframes wrap_slide_up {
+/*@keyframes wrap-slide-up {
 	0% {
         margin: 0 auto 0px auto;
         padding: 0 0 0px 0;
@@ -5868,10 +5868,10 @@ body {
         padding: 0 0 55px 0;
     }
 }*/
-.wrapHide {
-  animation: wrap_slide_down 0.75s forwards; }
+.wrap-hide {
+  animation: wrap-slide-down 0.75s forwards; }
 
-/*@keyframes wrap_slide_down {
+/*@keyframes wrap-slide-down {
 	0% {
         margin: 0 auto -55px auto;
         padding: 0 0 55px 0;
@@ -5886,17 +5886,17 @@ body {
   background-color: #f8f8f8;
   overflow: hidden; }
 
-.footerShow {
-  animation: footer_slide_up 0.75s forwards; }
+.footer-show {
+  animation: footer-slide-up 0.75s forwards; }
 
-/*@keyframes footer_slide_up {
+/*@keyframes footer-slide-up {
 	0% { height: 0px; }
 	100% { height: 55px; }
 }*/
-.footerHide {
-  animation: footer_slide_down 0.75s forwards; }
+.footer-hide {
+  animation: footer-slide-down 0.75s forwards; }
 
-/*@keyframes footer_slide_down {
+/*@keyframes footer-slide-down {
 	0% { height: 55px; }
 	100% { height: 0px; border: none; }
 }*/
@@ -5961,7 +5961,7 @@ a.choices {
   position: relative;
   font-family: Arial; }
 
-.bubbleRight {
+.bubble-right {
   float: right;
   text-align: right;
   border-top-left-radius: 10px;
@@ -5973,7 +5973,7 @@ a.choices {
   color: white;
   right: -50vw; }
 
-.bubbleRight:before {
+.bubble-right:before {
   border-style: solid;
   border-width: 10px 0px 0px 10px;
   border-color: transparent transparent transparent #4e4ff5;
@@ -5982,35 +5982,35 @@ a.choices {
   right: -10px;
   content: ""; }
 
-.bubbleRightImg {
+.bubble-right-img {
   float: right;
   text-align: right;
   margin-right: 15px;
   padding: 0px;
   right: -50vw; }
 
-.bubbleRightImg img {
+.bubble-right-img img {
   max-width: 100%;
   max-height: 100%;
   border-radius: 10px; }
 
-.bubbleRightAnimate {
-  animation: bubble_right 0.75s forwards; }
+.bubble-right-animate {
+  animation: bubble-right 0.75s forwards; }
 
-@keyframes bubble_right {
+@keyframes bubble-right {
   0% {
     right: -50vw; }
   100% {
     right: 0px; } }
-.bubbleRightAnimateExit {
-  animation: bubble_right_exit 0.75s forwards; }
+.bubble-right-animate-exit {
+  animation: bubble-right-exit 0.75s forwards; }
 
-@keyframes bubble_right_exit {
+@keyframes bubble-right-exit {
   0% {
     right: 0px; }
   100% {
     right: -400px; } }
-.bubbleLeftContainer {
+.bubble-left-container {
   float: left;
   text-align: left;
   width: 100%;
@@ -6019,7 +6019,7 @@ a.choices {
   background-color: none;
   overflow: visible; }
 
-.bubbleLeft {
+.bubble-left {
   float: left;
   text-align: left;
   border-top-left-radius: 10px;
@@ -6031,7 +6031,7 @@ a.choices {
   color: #333;
   left: -400px; }
 
-.bubbleLeft:before {
+.bubble-left:before {
   border-style: solid;
   border-width: 0px 0px 10px 10px;
   border-color: transparent transparent #eee transparent;
@@ -6041,7 +6041,7 @@ a.choices {
   content: "";
   color: #eee; }
 
-.bubbleLeftImg {
+.bubble-left-img {
   float: left;
   text-align: left;
   margin-left: 15px;
@@ -6057,28 +6057,28 @@ a.choices {
   font-size: 12px;
   color: gray; }
 
-.bubbleLeftImg img {
+.bubble-left-img img {
   max-width: 100%;
   max-height: 100%;
   border-radius: 10px; }
 
-.bubbleLeftAnimate {
-  animation: bubble_left 0.75s forwards; }
+.bubble-left-animate {
+  animation: bubble-left 0.75s forwards; }
 
-@keyframes bubble_left {
+@keyframes bubble-left {
   0% {
     left: -400px; }
   100% {
     left: 0px; } }
-.bubbleLeftAnimateExit {
-  animation: bubble_left_exit 0.75s forwards; }
+.bubble-left-animate-exit {
+  animation: bubble-left-exit 0.75s forwards; }
 
-@keyframes bubble_left_exit {
+@keyframes bubble-left-exit {
   0% {
     left: 0px; }
   100% {
     left: -400px; } }
-.bubbleTyping {
+.bubble-typing {
   padding: 7px 10px 7px 10px; }
 
 .circle {
@@ -6088,9 +6088,9 @@ a.choices {
   border-radius: 0.75em;
   background: gray;
   margin: 0em 0.1em 0em 0.1em;
-  animation: color_change 1.5s infinite; }
+  animation: color-change 1.5s infinite; }
 
-@keyframes color_change {
+@keyframes color-change {
   0% {
     background: gray; }
   25% {
@@ -6123,17 +6123,17 @@ a.choices {
   padding-top: 50px; }
 
 .lightbox-show {
-  animation: lightbox_show 0.5s forwards; }
+  animation: lightbox-show 0.5s forwards; }
 
-@keyframes lightbox_show {
+@keyframes lightbox-show {
   0% {
     opacity: 0; }
   100% {
     opacity: 1; } }
 .lightbox-hide {
-  animation: lightbox_hide 0.5s forwards; }
+  animation: lightbox-hide 0.5s forwards; }
 
-@keyframes lightbox_hide {
+@keyframes lightbox-hide {
   0% {
     opacity: 1; }
   100% {

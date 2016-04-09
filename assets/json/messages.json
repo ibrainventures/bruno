@@ -3,20 +3,20 @@ var json = [
         'id': '1',
         'messages': [
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 2000,
                 'contents': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque voluptatum consequatur, dicta magnam quis ipsa error quod eveniet odio quo, expedita numquam odit, voluptatem. Necessitatibus beatae, enim similique quos! Excepturi.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 1000,
                 'contents': 'My Lorem Ipsum game is on point.',
                 'link': 'http://www.shutupandsitdown.com/videos/v/review-tta/'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 0,
                 'typing': 500,
                 'contents': '👌'
@@ -37,25 +37,25 @@ var json = [
         'id': 'a',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 0,
                 'typing': 0,
                 'contents': 'That\'s latin, right?'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 1500,
                 'contents': 'Pseudo-latin actually. Designers mixed around letters in a common latin passage to simulate a generic block of text.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 500,
                 'contents': '😉'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 1000,
                 'contents': 'Anyways, sorry about that. Some placeholder text must be leftover from my testing. Allow me to introduce myself. I\'m Bruno!'
@@ -76,25 +76,25 @@ var json = [
         'id': 'b',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 0,
                 'typing': 0,
                 'contents': 'Err... What?'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 1000,
                 'contents': 'It\'s just placeholder jibberish. Don\'t worry about it.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 500,
                 'contents': '😽'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 1000,
                 'contents': 'Anyways. Allow me to introduce myself. I\'m Bruno!'
@@ -115,31 +115,31 @@ var json = [
         'id': '2a',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 0,
                 'typing': 0,
                 'contents': 'What can you do?'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 1000,
                 'contents': 'I\'m a simulated text message conversation that lives in your web browser. 📱'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 1500,
                 'contents': 'I parse .json files with JQuery, serve them up to the screen with CSS3 Animations, then let you continue the conversation with some predetermined choices.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'I\'ve also got emoji support through EmojiOne. 😎👍'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 0,
                 'typing': 500,
                 'contents': 'Got any buring questions on your mind?'
@@ -160,31 +160,31 @@ var json = [
         'id': '2b',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 0,
                 'typing': 0,
                 'contents': 'Uh, hi?'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 1000,
                 'contents': 'Hey there. I\'m a simulated text message conversation that lives in your web browser. 📱'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 1500,
                 'contents': 'I parse .json files with JQuery, serve them up to the screen with CSS3 Animations, then let you continue the conversation with some predetermined choices.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'I\'ve also got emoji support through EmojiOne. 😎👍'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 0,
                 'typing': 500,
                 'contents': 'Got any buring questions on your mind?'
@@ -205,25 +205,25 @@ var json = [
         'id': 'c',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'Why are you called Bruno?'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'It\'s a Ms. Marvel reference. Bruno is her nerdy best friend.'
             },
             {
-                'bubble': 'bubbleLeftImg',
+                'bubble': 'bubble-left-img',
                 'delay': 0,
                 'typing': 1000,
                 'contents': 'bruno.png'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 0,
                 'typing': 500,
                 'contents': 'Am I your nerdy best friend?'
@@ -244,19 +244,19 @@ var json = [
         'id': 'd',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 0,
                 'typing': 0,
                 'contents': 'What\'s for breakfast?'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'How does a potato hash sound?'
             },
             {
-                'bubble': 'bubbleLeftImg',
+                'bubble': 'bubble-left-img',
                 'delay': 100,
                 'typing': 1000,
                 'contents': 'hash.jpg'
@@ -277,25 +277,25 @@ var json = [
         'id': '3a',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 0,
                 'typing': 0,
                 'contents': 'Sure?'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 500,
                 'contents': '😸'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'I should probably get going.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 0,
                 'typing': 500,
                 'contents': 'Nice talking to you!'
@@ -307,25 +307,25 @@ var json = [
         'id': '3b',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 0,
                 'typing': 0,
                 'contents': 'No.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 500,
                 'contents': '😱'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'Well fine then.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 0,
                 'typing': 500,
                 'contents': 'Bye.'
@@ -337,31 +337,31 @@ var json = [
         'id': '3c',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 0,
                 'typing': 0,
                 'contents': 'That looks amazing.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'I know right?'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': '🍳'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'I should probably get going.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 0,
                 'typing': 500,
                 'contents': 'Nice talking to you!'
@@ -373,31 +373,31 @@ var json = [
         'id': '3d',
         'messages': [
             {
-                'bubble': 'bubbleRight',
+                'bubble': 'bubble-right',
                 'delay': 0,
                 'typing': 0,
                 'contents': 'Meh.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': '💔'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': '❌🍳?'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
                 'contents': 'On that note, I should probably get going.'
             },
             {
-                'bubble': 'bubbleLeft',
+                'bubble': 'bubble-left',
                 'delay': 0,
                 'typing': 500,
                 'contents': 'Later!'
