@@ -67,13 +67,11 @@ var bubble = function(id, value) {
         // If the bubble is on the right, immediately post.
         else if(value.bubble === 'bubble-right' || value.bubble === 'bubble-right-img') {
             // setTimeout pauses before posting the bubble based off the delay variable.
-            setTimeout (function() {
-                $(id).append(message).one('animationend', function() {
-                    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
-                    console.log(message);
-                    resolve();
-                });
-            }, value.delay);
+            $(id).append(message).one('animationend', function() {
+                $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+                console.log(message);
+                resolve();
+            });
         }
         // Otherwise, reject the promise.
         else {

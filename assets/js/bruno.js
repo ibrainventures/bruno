@@ -88,10 +88,25 @@ var commandListeners = function(element) {
     $(element).children().one('click', function (event) {
         return new Promise(function(resolve, reject) {
             hide().then(function() {
-                display('#bruno-chat', json, $(event.target).data('link')).then(function() {
-                    if($('#commands').children().length > 0) {
-                        show();
+                var commandJson = [
+                    {
+                        'id': '0',
+                        'messages': [
+                            {
+                                'bubble': 'bubble-right',
+                                'contents': $(event.target).data('text')
+                            }
+                        ],
+                        'choices': []
                     }
+                ];
+                console.log($(event.target));
+                display('#bruno-chat', commandJson, 0).then(function() {
+                    display('#bruno-chat', json, $(event.target).data('link')).then(function() {
+                        if($('#commands').children().length > 0) {
+                            show();
+                        }
+                    });
                 });
             });
         });
@@ -102,7 +117,7 @@ var commandListeners = function(element) {
 var updateCommands = function(choices) {
     $('#commands').text('');
     choices.forEach(function(value) {
-        $('#commands').append('<a class="choices" data-link="'+ value.link +'"><span class="choice" data-link="'+ value.link +'">' + value.contents + '</span></a>');
+        $('#commands').append('<a class="choices" data-link="'+ value.link +'" data-text="'+ value.contents +'"><span class="choice" data-link="'+ value.link +'" data-text="'+ value.contents +'">' + value.contents + '</span></a>');
     });
 }
 

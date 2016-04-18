@@ -2,7 +2,6 @@ var json = [
     {
         'id': '1',
         'messages': [
-
             {
                 'bubble': 'bubble-left',
                 'delay': 200,
@@ -37,12 +36,6 @@ var json = [
         'id': 'a',
         'messages': [
             {
-                'bubble': 'bubble-right',
-                'delay': 0,
-                'typing': 0,
-                'contents': 'That\'s latin, right?'
-            },
-            {
                 'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 1500,
@@ -76,12 +69,6 @@ var json = [
         'id': 'b',
         'messages': [
             {
-                'bubble': 'bubble-right',
-                'delay': 0,
-                'typing': 0,
-                'contents': 'Err... What?'
-            },
-            {
                 'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 1000,
@@ -114,12 +101,6 @@ var json = [
     {
         'id': '2a',
         'messages': [
-            {
-                'bubble': 'bubble-right',
-                'delay': 0,
-                'typing': 0,
-                'contents': 'What can you do?'
-            },
             {
                 'bubble': 'bubble-left',
                 'delay': 100,
@@ -160,12 +141,6 @@ var json = [
         'id': '2b',
         'messages': [
             {
-                'bubble': 'bubble-right',
-                'delay': 0,
-                'typing': 0,
-                'contents': 'Uh, hi?'
-            },
-            {
                 'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 1000,
@@ -205,12 +180,6 @@ var json = [
         'id': 'c',
         'messages': [
             {
-                'bubble': 'bubble-right',
-                'delay': 100,
-                'typing': 500,
-                'contents': 'Why are you called Bruno?'
-            },
-            {
                 'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
@@ -236,7 +205,7 @@ var json = [
                 'link': '3a'
             },
             {
-                'contents': 'No',
+                'contents': 'No.',
                 'link': '3b'
             }
         ]
@@ -244,12 +213,6 @@ var json = [
     {
         'id': 'd',
         'messages': [
-            {
-                'bubble': 'bubble-right',
-                'delay': 0,
-                'typing': 0,
-                'contents': 'What\'s for breakfast?'
-            },
             {
                 'bubble': 'bubble-left',
                 'delay': 100,
@@ -278,12 +241,6 @@ var json = [
         'id': '3a',
         'messages': [
             {
-                'bubble': 'bubble-right',
-                'delay': 0,
-                'typing': 0,
-                'contents': 'Sure?'
-            },
-            {
                 'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 500,
@@ -308,12 +265,6 @@ var json = [
         'id': '3b',
         'messages': [
             {
-                'bubble': 'bubble-right',
-                'delay': 0,
-                'typing': 0,
-                'contents': 'No.'
-            },
-            {
                 'bubble': 'bubble-left',
                 'delay': 200,
                 'typing': 500,
@@ -337,12 +288,6 @@ var json = [
     {
         'id': '3c',
         'messages': [
-            {
-                'bubble': 'bubble-right',
-                'delay': 0,
-                'typing': 0,
-                'contents': 'That looks amazing.'
-            },
             {
                 'bubble': 'bubble-left',
                 'delay': 100,
@@ -374,12 +319,6 @@ var json = [
     {
         'id': '3d',
         'messages': [
-            {
-                'bubble': 'bubble-right',
-                'delay': 0,
-                'typing': 0,
-                'contents': 'Meh.'
-            },
             {
                 'bubble': 'bubble-left',
                 'delay': 100,
