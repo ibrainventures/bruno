@@ -26,9 +26,18 @@ var bubble = function(id, value) {
         // Construct the bubble's div based on whether or not it is an image.
         if(value.bubble === 'bubble-left' || value.bubble === 'bubble-right') {
             if(value.link) {
-                message = "<a class=\"bubble-link-container\" href=\"" + value.link + "\"><div class=\"bubble " + value.bubble + " " + value.bubble + "-animate\">" + value.contents + "</div>";
-                message = message + '<div class="bubble-link-icon bubble-left-animate pull-left"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> 〉</div></a><div class="clearfix"></div>';
-                message = message + '<a class=\"bubble-link-container bubble-left-animate\" href=\"' + value.link + '\"><div class="bubble-link-text pull-left">' + 'shutupandsitdown.com' + '</div></a>';
+                //message = "<a class=\"bubble-link-container\" href=\"" + value.link + "\"><div class=\"bubble " + value.bubble + " " + value.bubble + "-animate\">" + value.contents + "</div>";
+                //message = message + '<div class="bubble-link-icon bubble-left-animate pull-left"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> 〉</div></a><div class="clearfix"></div>';
+                //message = message + '<a class=\"bubble-link-container bubble-left-animate\" href=\"' + value.link + '\"><div class="bubble-link-text pull-left">' + 'shutupandsitdown.com' + '</div></a>';
+                var parser = document.createElement('a');
+                parser.href = value.link;
+                var linkText = parser.hostname;
+                if(linkText.slice(0,4) === 'www.') {
+                    linkText = linkText.slice(4);
+                }
+                message = '<a class="bubble-link" target="_blank" href="' + value.link + '"><div class="bubble-column"><div class="bubble ' + value.bubble + ' ' + value.bubble + '-animate bubble-link-item">' + value.contents + '</div>';
+                message = message + '<div class="bubble-link-icon bubble-left-animate"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> 〉</div></div>';
+                message = message + '<div class="bubble-link-text bubble-left-animate">' + linkText + '</div></a>';
             }
             else {
                 message = "<div class=\"bubble " + value.bubble + " " + value.bubble + "-animate\">" + value.contents + "</div>";
@@ -47,7 +56,7 @@ var bubble = function(id, value) {
             bubbleTyping(id, value.typing).then(function() {
                 // setTimeout pauses before posting the bubble based off the delay variable.
                 setTimeout (function() {
-                    $('> .bubble-left-container', id).last().append(message).one('animationend', function() {
+                    $('> .bubble-left-container', id).last().append(message).on('animationend', function() {
                         $("html, body").animate({ scrollTop: $(document).height() }, "slow");
                         console.log(message);
                         resolve();

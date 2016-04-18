@@ -2,6 +2,7 @@ var json = [
     {
         'id': '1',
         'messages': [
+
             {
                 'bubble': 'bubble-left',
                 'delay': 200,
@@ -13,7 +14,6 @@ var json = [
                 'delay': 100,
                 'typing': 1000,
                 'contents': 'My Lorem Ipsum game is on point.',
-                'link': 'http://www.shutupandsitdown.com/videos/v/review-tta/'
             },
             {
                 'bubble': 'bubble-left',
@@ -214,7 +214,8 @@ var json = [
                 'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
-                'contents': 'It\'s a Ms. Marvel reference. Bruno is her nerdy best friend.'
+                'contents': 'It\'s a Ms. Marvel reference. Bruno is her nerdy best friend.',
+                'link': 'http://marvel.wikia.com/wiki/Bruno_Carrelli_(Earth-616)'
             },
             {
                 'bubble': 'bubble-left-img',
@@ -352,7 +353,8 @@ var json = [
                 'bubble': 'bubble-left',
                 'delay': 100,
                 'typing': 500,
-                'contents': '🍳'
+                'contents': 'Kenji can do amazing things with potatoes and eggs. The recipes over at Serious Eats. 🍳',
+                'link': 'http://www.seriouseats.com/2014/04/the-food-lab-how-to-make-the-best-potato-hash.html'
             },
             {
                 'bubble': 'bubble-left',

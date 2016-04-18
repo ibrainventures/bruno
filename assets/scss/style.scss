@@ -22,12 +22,9 @@ body {
 
 // Used to make a links with no href render correctly.
 // A links are instead used to trigger javascript functions.
+// See: .bubble-img-link Lightboxes
 .fake-link {
     cursor: pointer;
-}
-
-.bubble-img-link {
-
 }
 
 // Navbar Styles
@@ -62,7 +59,7 @@ body {
 	float: right!important;
 }
 
-// Sticky Footer Wrapper
+// Sticky Footer/Command Bar Wrapper
 .wrap {
   min-height: 100%;
   height: auto;
@@ -102,7 +99,7 @@ body {
     }
 }*/
 
-// Sticky Footer
+// Sticky Footer/Command Bar
 #footer {
   height: 0px;
   background-color: #f8f8f8;
@@ -289,7 +286,46 @@ a.choices {
     overflow: visible;
 }
 
+.bubble-link {
+    display: flex;
+    flex-direction: column;
+}
+
+.bubble-link:hover {
+    text-decoration: none;
+}
+
+.bubble-column {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bubble-link-item {
+    flex: 0 1 auto;
+}
+
+.bubble-link-icon {
+    flex: 0 0 auto;
+    padding-left: 5px;
+    margin-top: 7px;
+    	left: -400px;    clear: both;
+            position: relative;
+    //margin: 15px 5px 10px 5px;
+}
+
+.bubble-link-text {
+    //margin-top: -2px;
+    margin-left: 25px;
+    font-size: 12px;
+    color: gray;
+    	left: -400px;    clear: both;
+            position: relative;
+}
+
 .bubble-left {
+    flex: 0 0 auto;
+
 	float: left;
 	text-align: left;
 
@@ -324,18 +360,7 @@ a.choices {
 	margin-left: 15px;
 	padding: 0px;
 
-	left: -50vw;
-}
-
-.bubble-link-icon {
-    margin: 15px 5px 10px 5px;
-}
-
-.bubble-link-text {
-    margin-top: -2px;
-    margin-left: 25px;
-    font-size: 12px;
-    color: gray;
+	left: -400px;
 }
 
 .bubble-left-img img {
