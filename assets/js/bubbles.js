@@ -36,7 +36,7 @@ var bubble = function(id, value) {
                     linkText = linkText.slice(4);
                 }
                 message = '<a class="bubble-link" target="_blank" href="' + value.link + '"><div class="bubble-column"><div class="bubble ' + value.bubble + ' ' + value.bubble + '-animate bubble-link-item">' + value.contents + '</div>';
-                message = message + '<div class="bubble-link-icon bubble-left-animate"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> 〉</div></div>';
+                message = message + '<div class="bubble-link-icon bubble-left-animate"><span class="glyphicon glyphicon-link" aria-hidden="true"></span><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></div></div>';
                 message = message + '<div class="bubble-link-text bubble-left-animate">' + linkText + '</div></a>';
             }
             else {

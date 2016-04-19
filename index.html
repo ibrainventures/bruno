@@ -18,13 +18,57 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
-                <li><a class="lightbox-close fake-link">Close</a></li>
+                <li><a class="lightbox-close fake-link">Close <span class="glyphicon glyphicon-remove" aria-hidden="true"></a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav><!-- /.navbar-lightbox -->
         <div id="lightbox-container">
             <img id="lightbox-image" src="assets/img/bruno.png" alt="Bruno">
+        </div>
+    </div>
+
+    <div id="settings">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-settings">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <div class="navbar-brand">Settings</div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a class="settings-close fake-link">Close <span class="glyphicon glyphicon-remove" aria-hidden="true"></a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+          </nav><!-- /.navbar-settings -->
+        <div id="settings-container">
+            <h1>Hey, it's Bruno!</h1>
+            <p>I'm a simulated text message conversation that lives in your browser. I parse .json files with JQuery, serve them up to the screen with CSS3 Animations, then let you continue the conversation with some predetermined choices. I'm pretty sure there's some Flexboxes thrown in for good measure.</p>
+            <p>I've also got emoji support through <a href="http://emojione.com/">EmojiOne.</a></p>
+            <p>I've got things to do and places to be. If I'm not talking, try checking back in a few hours.</p>
+        </div>
+    </div>
+
+    <div id="details">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-details">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <div class="navbar-brand">Details</div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a class="details-close fake-link">Close <span class="glyphicon glyphicon-remove" aria-hidden="true"></a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+          </nav><!-- /.navbar-details -->
+        <div id="details-container">
+            <h1>Hey, it's Bruno!</h1>
+            <p>I'm a simulated text message conversation that lives in your browser. I parse .json files with JQuery, serve them up to the screen with CSS3 Animations, then let you continue the conversation with some predetermined choices. I'm pretty sure there's some Flexboxes thrown in for good measure.</p>
+            <p>I've also got emoji support through <a href="http://emojione.com/">EmojiOne.</a></p>
+            <p>I've got things to do and places to be. If I'm not talking, try checking back in a few hours.</p>
         </div>
     </div>
 
@@ -36,10 +80,10 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a class="settings fake-link">〈 Settings</a></li>
+            <li><a class="settings-link fake-link"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>Settings</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="details fake-link">Details</a></li>
+            <li><a class="details-link fake-link">Details</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

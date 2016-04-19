@@ -1,13 +1,52 @@
-/*** DEBUG FUNCTIONS ***/
-/*Temporary Debug Function
-$('.details').on('click', function (e) {
-    show();
-});*/
+/*** Details Pane ***/
+// Show Pane
+$('.details-link').on('click', function (e) {
+    return new Promise(function(resolve, reject) {
+        $('#details').removeClass('details-hide');
+        $('#details').css({'display' : 'block'});
+        $('#details').offsetWidth = $('#details').offsetWidth;
+        animatePromise('#details', 'details-show').then(function() {
+            resolve();
+        });
+    });
+});
 
-/* Temporary Debug Function
-$('.settings').on('click', function (e) {
-    show();
-});*/
+// Hide Pane
+$('.details-close').on('click', function (e) {
+    return new Promise(function(resolve, reject) {
+        $('#details').removeClass('details-show');
+        $('#details').offsetWidth = $('#details').offsetWidth;
+        animatePromise('#details', 'details-hide').then(function() {
+            $('#details').css({'display' : 'none'});
+            resolve();
+        });
+    });
+});
+
+/*** Settings Pane ***/
+// Show Pane
+$('.settings-link').on('click', function (e) {
+    return new Promise(function(resolve, reject) {
+        $('#settings').removeClass('settings-hide');
+        $('#settings').css({'display' : 'block'});
+        $('#settings').offsetWidth = $('#settings').offsetWidth;
+        animatePromise('#settings', 'settings-show').then(function() {
+            resolve();
+        });
+    });
+});
+
+// Hide Pane
+$('.settings-close').on('click', function (e) {
+    return new Promise(function(resolve, reject) {
+        $('#settings').removeClass('settings-show');
+        $('#settings').offsetWidth = $('#settings').offsetWidth;
+        animatePromise('#settings', 'settings-hide').then(function() {
+            $('#settings').css({'display' : 'none'});
+            resolve();
+        });
+    });
+});
 
 /*** LIGHTBOX FUNCTIONS ***/
 // Set listenders for picture messages.
@@ -100,7 +139,6 @@ var commandListeners = function(element) {
                         'choices': []
                     }
                 ];
-                console.log($(event.target));
                 display('#bruno-chat', commandJson, 0).then(function() {
                     display('#bruno-chat', json, $(event.target).data('link')).then(function() {
                         if($('#commands').children().length > 0) {
