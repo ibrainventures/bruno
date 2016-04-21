@@ -24,7 +24,7 @@ var bubble = function(id, value) {
         var message;
 
         // Construct the bubble's div based on whether or not it is an image.
-        if(value.bubble === 'bubble-left' || value.bubble === 'bubble-right') {
+        if(value.bubble === 'bubble-left' || value.bubble === 'bubble-right' || value.bubble === 'bubble-disconnected') {
             if(value.link) {
                 //message = "<a class=\"bubble-link-container\" href=\"" + value.link + "\"><div class=\"bubble " + value.bubble + " " + value.bubble + "-animate\">" + value.contents + "</div>";
                 //message = message + '<div class="bubble-link-icon bubble-left-animate pull-left"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> 〉</div></a><div class="clearfix"></div>';
@@ -66,6 +66,14 @@ var bubble = function(id, value) {
         }
         // If the bubble is on the right, immediately post.
         else if(value.bubble === 'bubble-right' || value.bubble === 'bubble-right-img') {
+            // setTimeout pauses before posting the bubble based off the delay variable.
+            $(id).append(message).one('animationend', function() {
+                $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+                console.log(message);
+                resolve();
+            });
+        }
+        else if(value.bubble === 'bubble-disconnected') {
             // setTimeout pauses before posting the bubble based off the delay variable.
             $(id).append(message).one('animationend', function() {
                 $("html, body").animate({ scrollTop: $(document).height() }, "slow");

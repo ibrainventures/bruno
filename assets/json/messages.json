@@ -347,3 +347,18 @@ var json = [
         'choices': []
     }
 ];
+
+
+var eotJson = [
+    {
+        'id': '0',
+        'messages': [
+            {
+                'bubble': 'bubble-disconnected',
+                'contents': 'Bruno has disconnected.',
+                'delay': 1000
+            }
+        ],
+        'choices': []
+    }
+];

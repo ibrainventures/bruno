@@ -6009,7 +6009,7 @@ a.choices {
   0% {
     right: 0px; }
   100% {
-    right: -400px; } }
+    right: -50vw; } }
 .bubble-left-container {
   float: left;
   text-align: left;
@@ -6038,7 +6038,7 @@ a.choices {
   flex: 0 0 auto;
   padding-left: 5px;
   margin-top: 7px;
-  left: -400px;
+  left: -50vw;
   clear: both;
   position: relative; }
 
@@ -6046,7 +6046,7 @@ a.choices {
   margin-left: 25px;
   font-size: 12px;
   color: gray;
-  left: -400px;
+  left: -50vw;
   clear: both;
   position: relative; }
 
@@ -6061,7 +6061,7 @@ a.choices {
   margin-left: 15px;
   background-color: #eee;
   color: #333;
-  left: -400px; }
+  left: -50vw; }
 
 .bubble-left:before {
   border-style: solid;
@@ -6078,7 +6078,7 @@ a.choices {
   text-align: left;
   margin-left: 15px;
   padding: 0px;
-  left: -400px; }
+  left: -50vw; }
 
 .bubble-left-img img {
   max-width: 100%;
@@ -6090,7 +6090,7 @@ a.choices {
 
 @keyframes bubble-left {
   0% {
-    left: -400px; }
+    left: -50vw; }
   100% {
     left: 0px; } }
 .bubble-left-animate-exit {
@@ -6100,10 +6100,30 @@ a.choices {
   0% {
     left: 0px; }
   100% {
-    left: -400px; } }
+    left: -50vw; } }
 .bubble-typing {
   padding: 7px 10px 7px 10px; }
 
+.bubble-disconnected {
+  clear: both;
+  position: relative;
+  right: -50vw;
+  float: left;
+  text-align: left;
+  font-size: 12px;
+  color: gray;
+  margin-top: 0px;
+  margin-left: 15px;
+  padding-bottom: 0px; }
+
+.bubble-disconnected-animate {
+  animation: bubble-disconnected 0.75s forwards; }
+
+@keyframes bubble-disconnected {
+  0% {
+    left: -50vw; }
+  100% {
+    left: 0px; } }
 .circle {
   display: inline-block;
   width: 0.75em;

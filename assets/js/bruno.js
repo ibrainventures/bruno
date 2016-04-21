@@ -144,6 +144,9 @@ var commandListeners = function(element) {
                         if($('#commands').children().length > 0) {
                             show();
                         }
+                        else {
+                            display('#bruno-chat', eotJson, '0');
+                        }
                     });
                 });
             });
@@ -228,6 +231,7 @@ $(document).ready(function() {
                 show();
             }
             else {
+                display('#bruno-chat', eotJson, '0');
             }
         });
     });
