@@ -1,4 +1,4 @@
-# Burno, a Web-Based Pseudo-Messaging UI Concept
+# Bruno, a Web-Based Pseudo-Messaging UI Concept
 
 ![Preview](https://raw.githubusercontent.com/ImStuartJones/bruno/master/screenshot.png)
 
